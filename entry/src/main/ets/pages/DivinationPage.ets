@@ -29,7 +29,7 @@ export struct DivinationPage {
   build() {
     Scroll() {
       Column() {
-        Text('☯ 高岛易断占卜')
+        Text('☯ 易经占卜')
           .fontSize(28)
           .fontWeight(FontWeight.Bold)
           .fontColor('#2C2416')
@@ -494,7 +494,7 @@ export struct DivinationPage {
     if (!this.result) return;
     const upper = this.result.hexagram?.upperTrigramInfo;
     const lower = this.result.hexagram?.lowerTrigramInfo;
-    const promptText = `高岛易断，问：${this.result.question}\n上卦：${upper?.name || ''} ${upper?.symbol || ''}\n下卦：${lower?.name || ''} ${lower?.symbol || ''}\n动爻：${this.result.movingLine?.name || '无'}\n本卦：${this.result.hexagram?.name || ''} ${this.result.hexagram?.symbol || ''}\n之卦：${this.result.changedHexagram?.name || ''} ${this.result.changedHexagram?.symbol || ''}\n帮忙解卦`;
+    const promptText = `易经占卜，问：${this.result.question}\n上卦：${upper?.name || ''} ${upper?.symbol || ''}\n下卦：${lower?.name || ''} ${lower?.symbol || ''}\n动爻：${this.result.movingLine?.name || '无'}\n本卦：${this.result.hexagram?.name || ''} ${this.result.hexagram?.symbol || ''}\n之卦：${this.result.changedHexagram?.name || ''} ${this.result.changedHexagram?.symbol || ''}\n帮忙解卦`;
     const data = pasteboard.createData(pasteboard.MIMETYPE_TEXT_PLAIN, promptText);
     try {
       await pasteboard.getSystemPasteboard().setData(data);

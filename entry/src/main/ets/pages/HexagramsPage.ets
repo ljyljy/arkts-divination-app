@@ -369,7 +369,7 @@ export struct HexagramsPage {
 
           if (this.sheetHex.interpretation) {
             Column() {
-              Text('✨ 高岛易断解释')
+              Text('✨ 易经解读')
                 .fontSize(16)
                 .fontWeight(FontWeight.Bold)
                 .fontColor('#2C2416')

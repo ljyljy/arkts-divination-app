@@ -119,13 +119,13 @@ export struct SettingsPage {
         .margin({ top: 12 })
 
         Column() {
-          Text('☯ 关于高岛易断')
+          Text('☯ 关于易经占卜')
             .fontSize(16)
             .fontWeight(FontWeight.Bold)
             .fontColor('#2C2416')
             .margin({ bottom: 12 })
 
-          Text('高岛易断是一款基于易经六十四卦的专业占卜应用，融合传统易学智慧与现代技术。源自日本明治时期易学大师高岛吞象（1832-1914）的易学体系，强调诚心问卜、蓍草起卦、动爻变化和综合解读。')
+          Text('易经占卜是一款基于易经六十四卦的专业占卜应用，融合传统易学智慧与现代技术。源自日本明治时期易学大师高岛吞象（1832-1914）的易学体系，强调诚心问卜、蓍草起卦、动爻变化和综合解读。')
             .fontSize(13)
             .fontColor('#6B5D4F')
             .lineHeight(22)

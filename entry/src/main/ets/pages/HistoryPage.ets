@@ -1,5 +1,8 @@
 import { getAllUsers, getHistory, deleteHistoryItem, updateHistoryComment } from '../utils/StorageUtils';
 import { DivinationResult, FilterItem } from '../model/DivinationModel';
+import { promptAction } from '@kit.ArkUI';
+import { pasteboard } from '@kit.BasicServicesKit';
+import { getTrigramByXianTianNumber } from '../data/TrigramsData';
 
 interface UserGroup {
   username: string;
@@ -237,6 +240,64 @@ export struct HistoryPage {
     return `${date.getFullYear()}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getDate().toString().padStart(2, '0')} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
   }
 
+  private getUpperNumberText(): string {
+    if (this.detailItem?.input?.upperNumber) {
+      const tri = getTrigramByXianTianNumber(this.detailItem.input.upperNumber);
+      return `${this.detailItem.input.upperNumber}${tri ? ' ' + tri.name : ''}`;
+    }
+    const num = this.detailItem?.hexagram?.upperTrigramInfo?.number;
+    return num ? `${num}` : '--';
+  }
+
+  private getLowerNumberText(): string {
+    if (this.detailItem?.input?.lowerNumber) {
+      const tri = getTrigramByXianTianNumber(this.detailItem.input.lowerNumber);
+      return `${this.detailItem.input.lowerNumber}${tri ? ' ' + tri.name : ''}`;
+    }
+    const num = this.detailItem?.hexagram?.lowerTrigramInfo?.number;
+    return num ? `${num}` : '--';
+  }
+
+  private getMovingLineText(): string {
+    if (this.detailItem?.input?.movingLine) {
+      const posNames: string[] = ['初爻', '二爻', '三爻', '四爻', '五爻', '上爻'];
+      return `${this.detailItem.input.movingLine} ${posNames[this.detailItem.input.movingLine - 1]}`;
+    }
+    if (this.detailItem?.movingLine?.position) {
+      return `${this.detailItem.movingLine.position}`;
+    }
+    return '--';
+  }
+
+  private async handleAdvancedReading() {
+    if (!this.detailItem) return;
+    const upper = this.detailItem.hexagram?.upperTrigramInfo;
+    const lower = this.detailItem.hexagram?.lowerTrigramInfo;
+    let promptText = `易经占卜，问：${this.detailItem.question}\n`;
+    if (this.detailItem.input) {
+      const upperTri = getTrigramByXianTianNumber(this.detailItem.input.upperNumber);
+      const lowerTri = getTrigramByXianTianNumber(this.detailItem.input.lowerNumber);
+      const posNames: string[] = ['初爻', '二爻', '三爻', '四爻', '五爻', '上爻'];
+      promptText += `上卦取数：${this.detailItem.input.upperNumber}（${upperTri?.name || ''}）\n`;
+      promptText += `下卦取数：${this.detailItem.input.lowerNumber}（${lowerTri?.name || ''}）\n`;
+      promptText += `动爻取数：${this.detailItem.input.movingLine}（${posNames[this.detailItem.input.movingLine - 1]}）\n`;
+    } else {
+      promptText += `上卦：${upper?.name || ''} ${upper?.symbol || ''}\n`;
+      promptText += `下卦：${lower?.name || ''} ${lower?.symbol || ''}\n`;
+    }
+    promptText += `本卦：${this.detailItem.hexagram?.name || ''} ${this.detailItem.hexagram?.symbol || ''}\n`;
+    promptText += `动爻：${this.detailItem.movingLine?.name || '无'}\n`;
+    promptText += `之卦：${this.detailItem.changedHexagram?.name || ''} ${this.detailItem.changedHexagram?.symbol || ''}\n`;
+    promptText += `帮忙解卦`;
+    const data = pasteboard.createData(pasteboard.MIMETYPE_TEXT_PLAIN, promptText);
+    try {
+      await pasteboard.getSystemPasteboard().setData(data);
+      promptAction.showToast({ message: '已复制到剪贴板，可粘贴至AI助手进行进阶解读' });
+    } catch (e) {
+      promptAction.showToast({ message: '复制失败' });
+    }
+  }
+
   @Builder
   HistInterpretationItem(label: string, content: string) {
     if (content) {
@@ -358,6 +419,45 @@ export struct HistoryPage {
           .justifyContent(FlexAlign.SpaceEvenly)
           .width('100%')
           .margin({ top: 16 })
+
+          // 取数信息
+          Row() {
+            Column() {
+              Text('上卦取数')
+                .fontSize(10)
+                .fontColor('#6B5D4F')
+              Text(this.getUpperNumberText())
+                .fontSize(16)
+                .fontWeight(FontWeight.Bold)
+                .fontColor('#2C2416')
+            }
+
+            Column() {
+              Text('下卦取数')
+                .fontSize(10)
+                .fontColor('#6B5D4F')
+              Text(this.getLowerNumberText())
+                .fontSize(16)
+                .fontWeight(FontWeight.Bold)
+                .fontColor('#2C2416')
+            }
+
+            Column() {
+              Text('动爻取数')
+                .fontSize(10)
+                .fontColor('#6B5D4F')
+              Text(this.getMovingLineText())
+                .fontSize(16)
+                .fontWeight(FontWeight.Bold)
+                .fontColor('#B94A48')
+            }
+          }
+          .justifyContent(FlexAlign.SpaceEvenly)
+          .width('100%')
+          .margin({ top: 12 })
+          .padding({ top: 8, bottom: 8 })
+          .backgroundColor('#F5F1E8')
+          .borderRadius(8)
 
           if (this.detailItem.hexagram?.judgment) {
             Column() {
@@ -629,6 +729,19 @@ export struct HistoryPage {
           .width('100%')
           .margin({ top: 16 })
           .alignItems(HorizontalAlign.Start)
+
+          // 进阶解读按钮
+          Button('🔮 进阶解读')
+            .width('100%')
+            .height(40)
+            .fontSize(14)
+            .fontColor('#D4AF37')
+            .backgroundColor('#D4AF3708')
+            .border({ width: 1, color: '#D4AF3740', radius: 8 })
+            .margin({ top: 16 })
+            .onClick(() => {
+              this.handleAdvancedReading();
+            })
         }
       }
       .padding(16)

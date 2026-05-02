@@ -663,7 +663,7 @@ export struct YarrowPage {
     const upperName = this.getTrigramNameForNumber(this.result.input?.upperNumber || 1);
     const lowerName = this.getTrigramNameForNumber(this.result.input?.lowerNumber || 1);
     const movingPos = this.posNames[(this.result.input?.movingLine || 1) - 1];
-    const promptText = `高岛易断，问：${this.result.question}\n上卦取数：${this.result.input?.upperNumber || 1}（${upperName}）\n下卦取数：${this.result.input?.lowerNumber || 1}（${lowerName}）\n动爻取数：${this.result.input?.movingLine || 1}（${movingPos}）\n本卦：${this.result.hexagram?.name || ''} ${this.result.hexagram?.symbol || ''}\n动爻：${this.result.movingLine?.name || '无'}\n之卦：${this.result.changedHexagram?.name || ''} ${this.result.changedHexagram?.symbol || ''}\n帮忙解卦`;
+    const promptText = `易经占卜，问：${this.result.question}\n上卦取数：${this.result.input?.upperNumber || 1}（${upperName}）\n下卦取数：${this.result.input?.lowerNumber || 1}（${lowerName}）\n动爻取数：${this.result.input?.movingLine || 1}（${movingPos}）\n本卦：${this.result.hexagram?.name || ''} ${this.result.hexagram?.symbol || ''}\n动爻：${this.result.movingLine?.name || '无'}\n之卦：${this.result.changedHexagram?.name || ''} ${this.result.changedHexagram?.symbol || ''}\n帮忙解卦`;
     const data = pasteboard.createData(pasteboard.MIMETYPE_TEXT_PLAIN, promptText);
     try {
       await pasteboard.getSystemPasteboard().setData(data);
