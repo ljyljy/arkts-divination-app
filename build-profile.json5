@@ -7,11 +7,11 @@
         "material": {
           "certpath": "C:\\Users\\ljy\\.ohos\\config\\default_arkTsTest_2xffx_0sf1dCFl7QH0Br1ElF7Czq5cisN2MnIfoFktg=.cer",
           "keyAlias": "debugKey",
-          "keyPassword": "0000001A13EE23186C5BA34E48333E5BE7E8C3F71E83327E9ABB15CC2F99F7144C62A843C4EF16683FA7",
+          "keyPassword": "0000001A6B8CC28780F88D93B1E3F1F8B781709FC1F2613E8AE92B2DC367BDFE2DECD47DF6BD76A50EE0",
           "profile": "C:\\Users\\ljy\\.ohos\\config\\default_arkTsTest_2xffx_0sf1dCFl7QH0Br1ElF7Czq5cisN2MnIfoFktg=.p7b",
           "signAlg": "SHA256withECDSA",
           "storeFile": "C:\\Users\\ljy\\.ohos\\config\\default_arkTsTest_2xffx_0sf1dCFl7QH0Br1ElF7Czq5cisN2MnIfoFktg=.p12",
-          "storePassword": "0000001A32B3678FA352268842896BD58D95474CDD95D5DB5E7056FD0491EB3DC2B51817CF4752387AD3"
+          "storePassword": "0000001A621E402104D22C23E0D58F7E643A9D8AA9F6D0DAC30A3401579691E05CAD7983E85CB45DAD32"
         }
       }
     ],

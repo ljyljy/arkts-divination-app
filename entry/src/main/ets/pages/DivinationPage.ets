@@ -274,7 +274,7 @@ export struct DivinationPage {
                     .fontColor('#5C4A32')
                     .margin({ top: 4 })
                     .lineHeight(18)
-                    .maxLines(3)
+                    .maxLines(2)
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                   Row() {
                     Text('查看全部 ›')
@@ -328,7 +328,7 @@ export struct DivinationPage {
                     .fontColor('#5C4A32')
                     .margin({ top: 4 })
                     .lineHeight(18)
-                    .maxLines(3)
+                    .maxLines(2)
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                   Row() {
                     Text('查看全部 ›')

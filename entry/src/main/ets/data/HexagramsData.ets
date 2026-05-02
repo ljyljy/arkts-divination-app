@@ -1,4 +1,5 @@
 import { Hexagram } from '../model/DivinationModel';
+import { mergeSupplementData } from './HexagramSupplementData';
 
 // 64卦完整数据
 export const HEXAGRAMS: Hexagram[] = [
@@ -82,3 +83,6 @@ export function searchHexagrams(keyword: string): Hexagram[] {
     h.number === parseInt(keyword)
   );
 }
+
+// 合并补充数据（经传释义 & 高岛活断实例完整内容）
+mergeSupplementData(HEXAGRAMS);
