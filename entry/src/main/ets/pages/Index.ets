@@ -9,6 +9,7 @@ import { SettingsPage } from './SettingsPage';
 @Component
 struct Index {
   @State currentIndex: number = 0
+  @State historyShowDetail: boolean = false
   private tabController: TabsController = new TabsController()
 
   aboutToAppear() {
@@ -31,7 +32,7 @@ struct Index {
         }.tabBar(this.TabBuilder(2, '卦象', '☰'))
 
         TabContent() {
-          HistoryPage()
+          HistoryPage({ showDetailState: $historyShowDetail, currentTabIndex: this.currentIndex })
         }.tabBar(this.TabBuilder(3, '历史', '📜'))
 
         TabContent() {
@@ -47,6 +48,14 @@ struct Index {
     .width('100%')
     .height('100%')
     .backgroundColor('#F5F1E8')
+  }
+
+  onBackPress(): boolean {
+    if (this.historyShowDetail) {
+      this.historyShowDetail = false;
+      return true;
+    }
+    return false;
   }
 
   @Builder

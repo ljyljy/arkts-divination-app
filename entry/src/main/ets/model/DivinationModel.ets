@@ -100,6 +100,14 @@ export interface FinalReading {
   outlook: string;
 }
 
+// 心得笔记
+export interface NoteItem {
+  id: string;
+  content: string;
+  createdAt: string;
+  updatedAt?: string;
+}
+
 // 占卜结果
 export interface DivinationResult {
   id: string;
@@ -114,6 +122,7 @@ export interface DivinationResult {
   finalReading?: FinalReading;
   comment?: string;
   commentUpdatedAt?: string;
+  notes?: NoteItem[];
 }
 
 // 蓍草起卦输入

@@ -1,5 +1,7 @@
-import { getStorageStats, clearAllData, exportAllHistory } from '../utils/StorageUtils';
+import { getStorageStats, clearAllData, exportAllHistory, importHistory } from '../utils/StorageUtils';
 import { promptAction } from '@kit.ArkUI';
+import { picker, fileIo } from '@kit.CoreFileKit';
+import { util } from '@kit.ArkTS';
 
 @Component
 export struct SettingsPage {
@@ -86,12 +88,19 @@ export struct SettingsPage {
             .backgroundColor('#D4AF3708')
             .border({ width: 1, color: '#D4AF3740', radius: 8 })
             .onClick(async () => {
-              const data = await exportAllHistory();
-              if (data) {
-                promptAction.showToast({ message: '数据已导出到剪贴板' });
-              } else {
-                promptAction.showToast({ message: '导出失败，请重试' });
-              }
+              await this.handleExport();
+            })
+
+          Button('导入数据')
+            .width('100%')
+            .height(40)
+            .fontSize(14)
+            .fontColor('#2C2416')
+            .backgroundColor('#F5F1E8')
+            .border({ width: 1, color: '#D4C4A8', radius: 8 })
+            .margin({ top: 8 })
+            .onClick(async () => {
+              await this.handleImport();
             })
 
           Button('清除所有数据')
@@ -125,9 +134,15 @@ export struct SettingsPage {
             .fontColor('#2C2416')
             .margin({ bottom: 12 })
 
-          Text('易经占卜是一款基于易经六十四卦的专业占卜应用，融合传统易学智慧与现代技术。源自日本明治时期易学大师高岛吞象（1832-1914）的易学体系，强调诚心问卜、蓍草起卦、动爻变化和综合解读。')
+          Text('《易经》是中国最古老的经典之一，被誉为"群经之首"，以六十四卦揭示天地万物变化之道，蕴含着深邃的东方哲学智慧。')
             .fontSize(13)
             .fontColor('#6B5D4F')
+            .lineHeight(22)
+
+          Text('本应用起卦采用高岛流方法，源自日本明治时期易学大师高岛吞象（1832-1914）的易学体系。该方法以蓍草取数为核心，通过上卦、下卦与动爻的组合快速成卦，流程简洁高效，适合日常占卜使用。')
+            .fontSize(13)
+            .fontColor('#6B5D4F')
+            .margin({ top: 8 })
             .lineHeight(22)
 
           Text('本应用所有数据均存储在本地设备，不会上传至任何服务器，请放心使用。')
@@ -153,5 +168,56 @@ export struct SettingsPage {
   private async loadStats() {
     const stats = await getStorageStats();
     this.storageStatsText = `${stats.recordCount} 条记录`;
+  }
+
+  private async handleExport() {
+    const data = await exportAllHistory();
+    if (!data) {
+      promptAction.showToast({ message: '导出失败，无数据' });
+      return;
+    }
+    try {
+      const documentSaveOptions = new picker.DocumentSaveOptions();
+      documentSaveOptions.newFileNames = [`yijing-export-${Date.now()}.json`];
+      const documentPicker = new picker.DocumentViewPicker();
+      const uris = await documentPicker.save(documentSaveOptions);
+      if (uris && uris.length > 0) {
+        const file = fileIo.openSync(uris[0], fileIo.OpenMode.WRITE_ONLY | fileIo.OpenMode.CREATE);
+        fileIo.writeSync(file.fd, data);
+        fileIo.closeSync(file);
+        promptAction.showToast({ message: '数据已导出到文件' });
+      } else {
+        promptAction.showToast({ message: '已取消导出' });
+      }
+    } catch (e) {
+      promptAction.showToast({ message: '导出失败，请重试' });
+    }
+  }
+
+  private async handleImport() {
+    try {
+      const documentSelectOptions = new picker.DocumentSelectOptions();
+      documentSelectOptions.maxSelectNumber = 1;
+      const documentPicker = new picker.DocumentViewPicker();
+      const uris = await documentPicker.select(documentSelectOptions);
+      if (uris && uris.length > 0) {
+        const file = fileIo.openSync(uris[0], fileIo.OpenMode.READ_ONLY);
+        const stat = fileIo.statSync(file.fd);
+        const buf = new ArrayBuffer(stat.size);
+        fileIo.readSync(file.fd, buf);
+        fileIo.closeSync(file);
+        const textDecoder = util.TextDecoder.create('utf-8');
+        const jsonData = textDecoder.decodeToString(new Uint8Array(buf));
+        const result = await importHistory('', jsonData, 'merge');
+        if (result.success) {
+          promptAction.showToast({ message: `导入成功：${result.importedCount} 条` });
+          await this.loadStats();
+        } else {
+          promptAction.showToast({ message: `导入失败：${result.error || '未知错误'}` });
+        }
+      }
+    } catch (e) {
+      promptAction.showToast({ message: '导入失败，请重试' });
+    }
   }
 }

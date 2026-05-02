@@ -1,7 +1,7 @@
 import { performYarrowDivination, YARROW_STEPS, getPositionMeaning, getChangeMeaning } from '../utils/YarrowUtils';
 import { XIAN_TIAN_LIST, getTrigramByXianTianNumber } from '../data/TrigramsData';
-import { getCurrentUser, setCurrentUser, saveDivinationResult } from '../utils/StorageUtils';
-import { DivinationResult, Interpretation, XianTianTrigram } from '../model/DivinationModel';
+import { getCurrentUser, setCurrentUser, saveDivinationResult, addNote, editNote, deleteNote } from '../utils/StorageUtils';
+import { DivinationResult, Interpretation, XianTianTrigram, NoteItem } from '../model/DivinationModel';
 import { promptAction } from '@kit.ArkUI';
 import { pasteboard } from '@kit.BasicServicesKit';
 
@@ -108,6 +108,10 @@ export struct YarrowPage {
   @State movingLine: number = 1
   @State result: DivinationResult | null = null
   @State isDivining: boolean = false
+  @State isAddingNote: boolean = false
+  @State newNoteContent: string = ''
+  @State editingNoteId: string = ''
+  @State editingNoteContent: string = ''
 
   private xianTianKeys: number[] = [1, 2, 3, 4, 5, 6, 7, 8]
   private posNames: string[] = ['初爻', '二爻', '三爻', '四爻', '五爻', '上爻']
@@ -567,6 +571,163 @@ export struct YarrowPage {
               .borderRadius(8)
               .margin({ top: 12 })
               .alignItems(HorizontalAlign.Start)
+            }
+          }
+          .width('100%')
+          .padding(16)
+          .backgroundColor('#FFFEF9')
+          .borderRadius(12)
+          .margin({ top: 12 })
+          .alignItems(HorizontalAlign.Start)
+
+          // 心得笔记
+          Column() {
+            Row() {
+              Text('📝 心得笔记')
+                .fontSize(14)
+                .fontWeight(FontWeight.Bold)
+                .fontColor('#2C2416')
+              Blank()
+              if (!this.isAddingNote) {
+                Text('➕')
+                  .fontSize(16)
+                  .fontColor('#B94A48')
+                  .onClick(() => {
+                    this.isAddingNote = true;
+                    this.newNoteContent = '';
+                  })
+              }
+            }
+            .width('100%')
+
+            if (this.result.notes && this.result.notes.length > 0) {
+              ForEach(this.result.notes, (note: NoteItem) => {
+                if (this.editingNoteId === note.id) {
+                  Column() {
+                    TextArea({ text: this.editingNoteContent })
+                      .width('100%')
+                      .height(70)
+                      .fontSize(13)
+                      .fontColor('#2C2416')
+                      .backgroundColor('#FFFEF9')
+                      .border({ width: 1, color: '#D4C4A8', radius: 8 })
+                      .onChange((value: string) => {
+                        this.editingNoteContent = value;
+                      })
+                    Row() {
+                      Text('取消')
+                        .fontSize(12)
+                        .fontColor('#6B5D4F')
+                        .margin({ right: 12 })
+                        .onClick(() => {
+                          this.editingNoteId = '';
+                          this.editingNoteContent = '';
+                        })
+                      Text('💾')
+                        .fontSize(12)
+                        .fontColor('#B94A48')
+                        .fontWeight(FontWeight.Medium)
+                        .onClick(async () => {
+                          if (this.result && this.editingNoteContent.trim()) {
+                            const user = this.username.trim() || await getCurrentUser();
+                            await editNote(user, this.result.id, note.id, this.editingNoteContent.trim());
+                            const idx = this.result.notes!.findIndex(n => n.id === note.id);
+                            if (idx >= 0) {
+                              this.result.notes![idx] = {
+                                id: note.id, content: this.editingNoteContent.trim(),
+                                createdAt: note.createdAt, updatedAt: new Date().toISOString()
+                              };
+                            }
+                          }
+                          this.editingNoteId = '';
+                          this.editingNoteContent = '';
+                        })
+                    }
+                    .margin({ top: 6 })
+                    .justifyContent(FlexAlign.End)
+                  }
+                  .width('100%')
+                  .padding(10)
+                  .backgroundColor('#F5F1E8')
+                  .borderRadius(8)
+                  .margin({ top: 6 })
+                } else {
+                  Row() {
+                    Text(note.content)
+                      .fontSize(13)
+                      .fontColor('#2C2416')
+                      .layoutWeight(1)
+                      .lineHeight(18)
+                    Row() {
+                      Text('✏')
+                        .fontSize(14)
+                        .fontColor('#C0A080')
+                        .margin({ left: 6 })
+                        .onClick(() => {
+                          this.editingNoteId = note.id;
+                          this.editingNoteContent = note.content;
+                        })
+                      Text('🗑')
+                        .fontSize(14)
+                        .fontColor('#C0A080')
+                        .margin({ left: 8 })
+                        .onClick(async () => {
+                          if (this.result) {
+                            const user = this.username.trim() || await getCurrentUser();
+                            await deleteNote(user, this.result.id, note.id);
+                            this.result.notes = this.result.notes?.filter(n => n.id !== note.id);
+                          }
+                        })
+                    }
+                  }
+                  .width('100%')
+                  .padding(10)
+                  .backgroundColor('#F5F1E8')
+                  .borderRadius(8)
+                  .margin({ top: 6 })
+                  .alignItems(VerticalAlign.Top)
+                }
+              })
+            }
+
+            if (this.isAddingNote) {
+              TextArea({ placeholder: '记录心得体会...', text: this.newNoteContent })
+                .width('100%')
+                .height(70)
+                .fontSize(13)
+                .fontColor('#2C2416')
+                .backgroundColor('#FFFEF9')
+                .border({ width: 1, color: '#D4C4A8', radius: 8 })
+                .margin({ top: 6 })
+                .onChange((value: string) => {
+                  this.newNoteContent = value;
+                })
+              Row() {
+                Text('取消')
+                  .fontSize(12)
+                  .fontColor('#6B5D4F')
+                  .margin({ right: 12 })
+                  .onClick(() => {
+                    this.isAddingNote = false;
+                    this.newNoteContent = '';
+                  })
+                Text('💾 保存')
+                  .fontSize(12)
+                  .fontColor('#B94A48')
+                  .fontWeight(FontWeight.Medium)
+                  .onClick(async () => {
+                    if (this.result && this.newNoteContent.trim()) {
+                      const user = this.username.trim() || await getCurrentUser();
+                      await addNote(user, this.result.id, this.newNoteContent.trim());
+                      if (!this.result.notes) { this.result.notes = []; }
+                      this.result.notes.push({ id: Date.now().toString(), content: this.newNoteContent.trim(), createdAt: new Date().toISOString() });
+                    }
+                    this.isAddingNote = false;
+                    this.newNoteContent = '';
+                  })
+              }
+              .margin({ top: 6 })
+              .justifyContent(FlexAlign.End)
             }
           }
           .width('100%')

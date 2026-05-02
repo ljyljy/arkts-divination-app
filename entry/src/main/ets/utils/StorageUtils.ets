@@ -1,5 +1,5 @@
 import dataPreferences from '@ohos.data.preferences';
-import { DivinationResult, StorageStats, ImportResult, ExportData } from '../model/DivinationModel';
+import { DivinationResult, StorageStats, ImportResult, ExportData, NoteItem } from '../model/DivinationModel';
 
 const PREFERENCES_NAME = 'fateYi_preferences';
 const HISTORY_KEY = 'fateYi_history';
@@ -148,7 +148,7 @@ export async function deleteHistoryItem(username: string, id: string): Promise<b
   }
 }
 
-// 更新心得笔记
+// 更新心得笔记（旧版兼容）
 export async function updateHistoryComment(username: string, id: string, comment: string): Promise<boolean> {
   try {
     const prefs = getPreferences();
@@ -162,6 +162,95 @@ export async function updateHistoryComment(username: string, id: string, comment
       if (itemIndex !== -1) {
         allHistory[targetUser][itemIndex].comment = comment;
         allHistory[targetUser][itemIndex].commentUpdatedAt = new Date().toISOString();
+        await prefs.put(HISTORY_KEY, JSON.stringify(allHistory));
+        await prefs.flush();
+        return true;
+      }
+    }
+    return false;
+  } catch (e) {
+    return false;
+  }
+}
+
+// 生成简单UUID
+function generateNoteId(): string {
+  return Date.now().toString(36) + Math.random().toString(36).substring(2, 7);
+}
+
+// 添加笔记
+export async function addNote(username: string, resultId: string, content: string): Promise<boolean> {
+  try {
+    const prefs = getPreferences();
+    if (!prefs) return false;
+    const data = (await prefs.get(HISTORY_KEY, '{}')) as string;
+    const allHistory: Record<string, DivinationResult[]> = parseAllHistory(data);
+    const targetUser: string = username || DEFAULT_USER;
+
+    if (allHistory[targetUser]) {
+      const itemIndex: number = allHistory[targetUser].findIndex((item: DivinationResult) => item.id === resultId);
+      if (itemIndex !== -1) {
+        if (!allHistory[targetUser][itemIndex].notes) {
+          allHistory[targetUser][itemIndex].notes = [];
+        }
+        const note: NoteItem = {
+          id: generateNoteId(),
+          content: content,
+          createdAt: new Date().toISOString()
+        };
+        allHistory[targetUser][itemIndex].notes!.push(note);
+        await prefs.put(HISTORY_KEY, JSON.stringify(allHistory));
+        await prefs.flush();
+        return true;
+      }
+    }
+    return false;
+  } catch (e) {
+    return false;
+  }
+}
+
+// 编辑笔记
+export async function editNote(username: string, resultId: string, noteId: string, content: string): Promise<boolean> {
+  try {
+    const prefs = getPreferences();
+    if (!prefs) return false;
+    const data = (await prefs.get(HISTORY_KEY, '{}')) as string;
+    const allHistory: Record<string, DivinationResult[]> = parseAllHistory(data);
+    const targetUser: string = username || DEFAULT_USER;
+
+    if (allHistory[targetUser]) {
+      const itemIndex: number = allHistory[targetUser].findIndex((item: DivinationResult) => item.id === resultId);
+      if (itemIndex !== -1 && allHistory[targetUser][itemIndex].notes) {
+        const noteIndex: number = allHistory[targetUser][itemIndex].notes!.findIndex((n: NoteItem) => n.id === noteId);
+        if (noteIndex !== -1) {
+          allHistory[targetUser][itemIndex].notes![noteIndex].content = content;
+          allHistory[targetUser][itemIndex].notes![noteIndex].updatedAt = new Date().toISOString();
+          await prefs.put(HISTORY_KEY, JSON.stringify(allHistory));
+          await prefs.flush();
+          return true;
+        }
+      }
+    }
+    return false;
+  } catch (e) {
+    return false;
+  }
+}
+
+// 删除笔记
+export async function deleteNote(username: string, resultId: string, noteId: string): Promise<boolean> {
+  try {
+    const prefs = getPreferences();
+    if (!prefs) return false;
+    const data = (await prefs.get(HISTORY_KEY, '{}')) as string;
+    const allHistory: Record<string, DivinationResult[]> = parseAllHistory(data);
+    const targetUser: string = username || DEFAULT_USER;
+
+    if (allHistory[targetUser]) {
+      const itemIndex: number = allHistory[targetUser].findIndex((item: DivinationResult) => item.id === resultId);
+      if (itemIndex !== -1 && allHistory[targetUser][itemIndex].notes) {
+        allHistory[targetUser][itemIndex].notes = allHistory[targetUser][itemIndex].notes!.filter((n: NoteItem) => n.id !== noteId);
         await prefs.put(HISTORY_KEY, JSON.stringify(allHistory));
         await prefs.flush();
         return true;
@@ -261,16 +350,10 @@ export async function exportAllHistory(): Promise<string | null> {
   }
 }
 
-// 导入历史记录
+// 导入历史记录（支持 ExportData 格式和旧 records 格式）
 export async function importHistory(username: string, jsonData: string, mode: string = 'merge'): Promise<ImportResult> {
   try {
     const importData: Record<string, Object> = JSON.parse(jsonData) as Record<string, Object>;
-    const recordsRaw: Object[] = importData['records'] as Object[];
-    if (!recordsRaw || !Array.isArray(recordsRaw)) {
-      const failResult: ImportResult = { success: false, importedCount: 0, skippedCount: 0, totalCount: 0, error: '无效的数据格式' };
-      return failResult;
-    }
-
     const prefs = getPreferences();
     if (!prefs) {
       const failResult: ImportResult = { success: false, importedCount: 0, skippedCount: 0, totalCount: 0, error: '存储未初始化' };
@@ -279,41 +362,85 @@ export async function importHistory(username: string, jsonData: string, mode: st
 
     const data = (await prefs.get(HISTORY_KEY, '{}')) as string;
     const allHistory: Record<string, DivinationResult[]> = parseAllHistory(data);
-    if (!allHistory[username]) {
-      allHistory[username] = [];
-    }
 
     let importedCount: number = 0;
     let skippedCount: number = 0;
 
-    const importRecords: DivinationResult[] = recordsRaw as DivinationResult[];
+    // 判断格式：ExportData 格式包含 users 字段
+    const usersObj: Object | undefined = importData['users'] as Object | undefined;
+    if (usersObj && typeof usersObj === 'object') {
+      // ExportData 格式：{ version, lastUpdated, users: { user1: [...], user2: [...] } }
+      const usersMap: Record<string, Object[]> = usersObj as Record<string, Object[]>;
+      const userKeys: string[] = Object.keys(usersMap);
+      for (let i = 0; i < userKeys.length; i++) {
+        const userName: string = userKeys[i];
+        const recordsRaw: Object[] = usersMap[userName];
+        if (!recordsRaw || !Array.isArray(recordsRaw)) continue;
 
-    if (mode === 'replace') {
-      allHistory[username] = importRecords;
-      importedCount = importRecords.length;
-    } else {
-      const existingIds: Set<string> = new Set<string>(allHistory[username].map((item: DivinationResult) => item.id));
-      for (let i = 0; i < importRecords.length; i++) {
-        const record: DivinationResult = importRecords[i];
-        if (!existingIds.has(record.id)) {
-          allHistory[username].push(record);
-          importedCount++;
-        } else {
-          skippedCount++;
+        if (!allHistory[userName]) {
+          allHistory[userName] = [];
+        }
+
+        const importRecords: DivinationResult[] = recordsRaw as DivinationResult[];
+        const existingIds: Set<string> = new Set<string>(allHistory[userName].map((item: DivinationResult) => item.id));
+        for (let j = 0; j < importRecords.length; j++) {
+          const record: DivinationResult = importRecords[j];
+          if (mode === 'replace' || !existingIds.has(record.id)) {
+            allHistory[userName].push(record);
+            importedCount++;
+          } else {
+            skippedCount++;
+          }
+        }
+        allHistory[userName].sort((a: DivinationResult, b: DivinationResult) =>
+          new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+        );
+        if (allHistory[userName].length > 100) {
+          allHistory[userName] = allHistory[userName].slice(0, 100);
         }
       }
-      allHistory[username].sort((a: DivinationResult, b: DivinationResult) =>
-        new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
-      );
-      if (allHistory[username].length > 100) {
-        allHistory[username] = allHistory[username].slice(0, 100);
+    } else {
+      // 旧格式：{ records: [...] }
+      const recordsRaw: Object[] = importData['records'] as Object[];
+      if (!recordsRaw || !Array.isArray(recordsRaw)) {
+        const failResult: ImportResult = { success: false, importedCount: 0, skippedCount: 0, totalCount: 0, error: '无效的数据格式' };
+        return failResult;
+      }
+
+      const targetUser: string = username || DEFAULT_USER;
+      if (!allHistory[targetUser]) {
+        allHistory[targetUser] = [];
+      }
+
+      const importRecords: DivinationResult[] = recordsRaw as DivinationResult[];
+      if (mode === 'replace') {
+        allHistory[targetUser] = importRecords;
+        importedCount = importRecords.length;
+      } else {
+        const existingIds: Set<string> = new Set<string>(allHistory[targetUser].map((item: DivinationResult) => item.id));
+        for (let i = 0; i < importRecords.length; i++) {
+          const record: DivinationResult = importRecords[i];
+          if (!existingIds.has(record.id)) {
+            allHistory[targetUser].push(record);
+            importedCount++;
+          } else {
+            skippedCount++;
+          }
+        }
+        allHistory[targetUser].sort((a: DivinationResult, b: DivinationResult) =>
+          new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+        );
+        if (allHistory[targetUser].length > 100) {
+          allHistory[targetUser] = allHistory[targetUser].slice(0, 100);
+        }
       }
     }
 
     await prefs.put(HISTORY_KEY, JSON.stringify(allHistory));
     await prefs.flush();
 
-    const successResult: ImportResult = { success: true, importedCount: importedCount, skippedCount: skippedCount, totalCount: allHistory[username].length };
+    const totalAll: number = Object.values(allHistory).reduce((sum: number, recs: DivinationResult[]) => sum + recs.length, 0);
+    const successResult: ImportResult = { success: true, importedCount: importedCount, skippedCount: skippedCount, totalCount: totalAll };
     return successResult;
   } catch (e) {
     const failResult: ImportResult = { success: false, importedCount: 0, skippedCount: 0, totalCount: 0, error: '解析数据失败' };
