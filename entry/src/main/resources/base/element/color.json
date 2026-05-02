@@ -1,0 +1,15 @@
+{
+  "color": [
+    { "name": "start_window_background", "value": "#F5F1E8" },
+    { "name": "paper", "value": "#F5F1E8" },
+    { "name": "card", "value": "#FFFEF9" },
+    { "name": "ink", "value": "#2C2416" },
+    { "name": "inkLight", "value": "#6B5D4F" },
+    { "name": "cinnabar", "value": "#B94A48" },
+    { "name": "gold", "value": "#D4AF37" },
+    { "name": "borderColor", "value": "#D4C4A8" },
+    { "name": "yinColor", "value": "#8B7355" },
+    { "name": "yangColor", "value": "#2C2416" },
+    { "name": "white", "value": "#FFFFFF" }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "string": [
+    { "name": "module_desc", "value": "高岛易断鸿蒙版" },
+    { "name": "EntryAbility_desc", "value": "高岛易断主界面" },
+    { "name": "EntryAbility_label", "value": "高岛易断" },
+    { "name": "tab_divination", "value": "占卜" },
+    { "name": "tab_yarrow", "value": "蓍草" },
+    { "name": "tab_hexagrams", "value": "卦象" },
+    { "name": "tab_history", "value": "历史" },
+    { "name": "tab_settings", "value": "设置" }
+  ]
+}
