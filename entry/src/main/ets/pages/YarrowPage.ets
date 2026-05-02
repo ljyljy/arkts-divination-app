@@ -112,6 +112,9 @@ export struct YarrowPage {
   @State newNoteContent: string = ''
   @State editingNoteId: string = ''
   @State editingNoteContent: string = ''
+  @State showContentSheet: boolean = false
+  @State sheetTitle: string = ''
+  @State sheetContent: string = ''
 
   private xianTianKeys: number[] = [1, 2, 3, 4, 5, 6, 7, 8]
   private posNames: string[] = ['初爻', '二爻', '三爻', '四爻', '五爻', '上爻']
@@ -488,6 +491,19 @@ export struct YarrowPage {
                       .fontColor('#5C4A32')
                       .margin({ top: 4 })
                       .lineHeight(18)
+                      .maxLines(3)
+                      .textOverflow({ overflow: TextOverflow.Ellipsis })
+                    Row() {
+                      Text('查看全部 ›')
+                        .fontSize(12)
+                        .fontColor('#B94A48')
+                    }
+                    .margin({ top: 4 })
+                    .onClick(() => {
+                      this.sheetTitle = '📚 经传释义';
+                      this.sheetContent = this.result!.movingLine!.classicComment!;
+                      this.showContentSheet = true;
+                    })
                   }
                   .width('100%')
                   .padding(12)
@@ -529,6 +545,19 @@ export struct YarrowPage {
                       .fontColor('#5C4A32')
                       .margin({ top: 4 })
                       .lineHeight(18)
+                      .maxLines(3)
+                      .textOverflow({ overflow: TextOverflow.Ellipsis })
+                    Row() {
+                      Text('查看全部 ›')
+                        .fontSize(12)
+                        .fontColor('#B94A48')
+                    }
+                    .margin({ top: 4 })
+                    .onClick(() => {
+                      this.sheetTitle = '📜 高岛活断实例';
+                      this.sheetContent = this.result!.movingLine!.takashiCase!;
+                      this.showContentSheet = true;
+                    })
                   }
                   .width('100%')
                   .padding(12)
@@ -773,6 +802,12 @@ export struct YarrowPage {
     .width('100%')
     .height('100%')
     .backgroundColor('#F5F1E8')
+    .bindSheet($$this.showContentSheet, this.ContentSheetBuilder(), {
+      height: SheetSize.LARGE,
+      showClose: true,
+      dragBar: true,
+      backgroundColor: Color.Transparent
+    })
   }
 
   @Builder
@@ -832,5 +867,30 @@ export struct YarrowPage {
     } catch (e) {
       promptAction.showToast({ message: '复制失败' });
     }
+  }
+
+  @Builder
+  ContentSheetBuilder() {
+    Column() {
+      Text(this.sheetTitle)
+        .fontSize(18)
+        .fontWeight(FontWeight.Bold)
+        .fontColor('#2C2416')
+        .margin({ top: 20, bottom: 12 })
+
+      Scroll() {
+        Text(this.sheetContent)
+          .fontSize(14)
+          .fontColor('#5C4A32')
+          .lineHeight(24)
+          .width('100%')
+      }
+      .layoutWeight(1)
+    }
+    .width('100%')
+    .height('100%')
+    .padding({ left: 20, right: 20, bottom: 24 })
+    .backgroundColor('#FFFEF9')
+    .borderRadius({ topLeft: 16, topRight: 16 })
   }
 }
