@@ -496,7 +496,11 @@ export struct DivinationPage {
     const lower = this.result.hexagram?.lowerTrigramInfo;
     const promptText = `高岛易断，问：${this.result.question}\n上卦：${upper?.name || ''} ${upper?.symbol || ''}\n下卦：${lower?.name || ''} ${lower?.symbol || ''}\n动爻：${this.result.movingLine?.name || '无'}\n本卦：${this.result.hexagram?.name || ''} ${this.result.hexagram?.symbol || ''}\n之卦：${this.result.changedHexagram?.name || ''} ${this.result.changedHexagram?.symbol || ''}\n帮忙解卦`;
     const data = pasteboard.createData(pasteboard.MIMETYPE_TEXT_PLAIN, promptText);
-    await pasteboard.getSystemPasteboard().setData(data);
-    promptAction.showToast({ message: '已复制到剪贴板' });
+    try {
+      await pasteboard.getSystemPasteboard().setData(data);
+      promptAction.showToast({ message: '已复制到剪贴板' });
+    } catch (e) {
+      promptAction.showToast({ message: '复制失败' });
+    }
   }
 }

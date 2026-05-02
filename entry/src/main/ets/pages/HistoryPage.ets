@@ -176,7 +176,7 @@ export struct HistoryPage {
     .height('100%')
     .backgroundColor('#F5F1E8')
     .bindSheet(this.isDetailSheetOpen, this.DetailSheetBuilder(), {
-      height: ['MEDIUM', 'LARGE'],
+      height: 'MEDIUM',
       dragBar: true,
       showClose: true,
       backgroundColor: '#FFFEF9',
