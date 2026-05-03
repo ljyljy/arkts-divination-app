@@ -1,7 +1,7 @@
 import { performDivination, performManualDivination, LINE_OPTIONS, generateRandomLines, isMovingLine, lineToBinary } from '../utils/HexagramUtils';
 import { findTrigramByLines } from '../data/TrigramsData';
 import { getCurrentUser, setCurrentUser, saveDivinationResult, addNote, editNote, deleteNote } from '../utils/StorageUtils';
-import { DivinationResult, LineOption, Interpretation, NoteItem } from '../model/DivinationModel';
+import { DivinationResult, LineOption, Interpretation, NoteItem, MultipleJudgment } from '../model/DivinationModel';
 import { promptAction } from '@kit.ArkUI';
 import { pasteboard } from '@kit.BasicServicesKit';
 
@@ -302,11 +302,28 @@ export struct DivinationPage {
                     .fontSize(12)
                     .fontColor('#B94A48')
                     .fontWeight(FontWeight.Bold)
-                  ForEach(this.result.movingLine.multipleJudgments, (mj: string) => {
-                    Text(mj)
-                      .fontSize(12)
-                      .fontColor('#5C4A32')
-                      .margin({ top: 4 })
+                  ForEach(this.result.movingLine.multipleJudgments, (mj: MultipleJudgment) => {
+                    Column() {
+                      Text(mj.category)
+                        .fontSize(11)
+                        .fontColor('#8B7355')
+                        .fontWeight(FontWeight.Bold)
+                      Text(mj.content)
+                        .fontSize(12)
+                        .fontColor('#5C4A32')
+                        .margin({ top: 2 })
+                        .lineHeight(18)
+                      Text('——' + mj.source)
+                        .fontSize(10)
+                        .fontColor('#A99285')
+                        .margin({ top: 2 })
+                    }
+                    .width('100%')
+                    .margin({ top: 8 })
+                    .padding(8)
+                    .backgroundColor('#FFF9F0')
+                    .borderRadius(6)
+                    .alignItems(HorizontalAlign.Start)
                   })
                 }
                 .width('100%')

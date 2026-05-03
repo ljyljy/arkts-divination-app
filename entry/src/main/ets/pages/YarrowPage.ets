@@ -1,7 +1,7 @@
 import { performYarrowDivination, YARROW_STEPS, getPositionMeaning, getChangeMeaning } from '../utils/YarrowUtils';
 import { XIAN_TIAN_LIST, getTrigramByXianTianNumber } from '../data/TrigramsData';
 import { getCurrentUser, setCurrentUser, saveDivinationResult, addNote, editNote, deleteNote } from '../utils/StorageUtils';
-import { DivinationResult, Interpretation, XianTianTrigram, NoteItem } from '../model/DivinationModel';
+import { DivinationResult, Interpretation, XianTianTrigram, NoteItem, MultipleJudgment } from '../model/DivinationModel';
 import { promptAction } from '@kit.ArkUI';
 import { pasteboard } from '@kit.BasicServicesKit';
 
@@ -115,6 +115,7 @@ export struct YarrowPage {
   @State showContentSheet: boolean = false
   @State sheetTitle: string = ''
   @State sheetContent: string = ''
+  @State showTeachingSheet: boolean = false
 
   private xianTianKeys: number[] = [1, 2, 3, 4, 5, 6, 7, 8]
   private posNames: string[] = ['初爻', '二爻', '三爻', '四爻', '五爻', '上爻']
@@ -147,7 +148,21 @@ export struct YarrowPage {
         Text('大衍之数五十，其用四十有九')
           .fontSize(14)
           .fontColor('#6B5D4F')
-          .margin({ bottom: 20 })
+          .margin({ bottom: 12 })
+
+        Button('📖 教学')
+          .height(32)
+          .fontSize(14)
+          .fontColor('#B94A48')
+          .backgroundColor('#FFF5F0')
+          .border({ width: 1, color: '#E8C8C0', radius: 16 })
+          .margin({ bottom: 16 })
+          .onClick(() => {
+            this.showTeachingSheet = true;
+            setTimeout(() => {
+              promptAction.showToast({ message: '教学图为大模型生成，仅作参考。', duration: 2000 });
+            }, 300);
+          })
 
         Column() {
           Row() {
@@ -493,17 +508,15 @@ export struct YarrowPage {
                       .lineHeight(18)
                       .maxLines(2)
                       .textOverflow({ overflow: TextOverflow.Ellipsis })
-                    Row() {
-                      Text('查看全部 ›')
-                        .fontSize(12)
-                        .fontColor('#B94A48')
-                    }
-                    .margin({ top: 4 })
-                    .onClick(() => {
-                      this.sheetTitle = '📚 经传释义';
-                      this.sheetContent = this.result!.movingLine!.classicComment!;
-                      this.showContentSheet = true;
-                    })
+                    Text('查看全部 ›')
+                      .fontSize(12)
+                      .fontColor('#B94A48')
+                      .margin({ top: 4 })
+                      .onClick(() => {
+                        this.sheetTitle = '📚 经传释义';
+                        this.sheetContent = this.result!.movingLine!.classicComment!;
+                        this.showContentSheet = true;
+                      })
                   }
                   .width('100%')
                   .padding(12)
@@ -519,11 +532,28 @@ export struct YarrowPage {
                       .fontSize(12)
                       .fontColor('#B94A48')
                       .fontWeight(FontWeight.Bold)
-                    ForEach(this.result.movingLine.multipleJudgments, (mj: string) => {
-                      Text(mj)
-                        .fontSize(12)
-                        .fontColor('#5C4A32')
-                        .margin({ top: 4 })
+                    ForEach(this.result.movingLine.multipleJudgments, (mj: MultipleJudgment) => {
+                      Column() {
+                        Text(mj.category)
+                          .fontSize(11)
+                          .fontColor('#8B7355')
+                          .fontWeight(FontWeight.Bold)
+                        Text(mj.content)
+                          .fontSize(12)
+                          .fontColor('#5C4A32')
+                          .margin({ top: 2 })
+                          .lineHeight(18)
+                        Text('——' + mj.source)
+                          .fontSize(10)
+                          .fontColor('#A99285')
+                          .margin({ top: 2 })
+                      }
+                      .width('100%')
+                      .margin({ top: 8 })
+                      .padding(8)
+                      .backgroundColor('#FFF9F0')
+                      .borderRadius(6)
+                      .alignItems(HorizontalAlign.Start)
                     })
                   }
                   .width('100%')
@@ -547,17 +577,15 @@ export struct YarrowPage {
                       .lineHeight(18)
                       .maxLines(2)
                       .textOverflow({ overflow: TextOverflow.Ellipsis })
-                    Row() {
-                      Text('查看全部 ›')
-                        .fontSize(12)
-                        .fontColor('#B94A48')
-                    }
-                    .margin({ top: 4 })
-                    .onClick(() => {
-                      this.sheetTitle = '📜 高岛活断实例';
-                      this.sheetContent = this.result!.movingLine!.takashiCase!;
-                      this.showContentSheet = true;
-                    })
+                    Text('查看全部 ›')
+                      .fontSize(12)
+                      .fontColor('#B94A48')
+                      .margin({ top: 4 })
+                      .onClick(() => {
+                        this.sheetTitle = '📜 高岛活断实例';
+                        this.sheetContent = this.result!.movingLine!.takashiCase!;
+                        this.showContentSheet = true;
+                      })
                   }
                   .width('100%')
                   .padding(12)
@@ -808,6 +836,12 @@ export struct YarrowPage {
       dragBar: true,
       backgroundColor: Color.Transparent
     })
+    .bindSheet($$this.showTeachingSheet, this.TeachingSheetBuilder(), {
+      height: SheetSize.LARGE,
+      showClose: true,
+      dragBar: true,
+      backgroundColor: Color.Transparent
+    })
   }
 
   @Builder
@@ -884,6 +918,59 @@ export struct YarrowPage {
           .fontColor('#5C4A32')
           .lineHeight(24)
           .width('100%')
+      }
+      .layoutWeight(1)
+    }
+    .width('100%')
+    .height('100%')
+    .padding({ left: 20, right: 20, bottom: 24 })
+    .backgroundColor('#FFFEF9')
+    .borderRadius({ topLeft: 16, topRight: 16 })
+  }
+
+  @Builder
+  TeachingSheetBuilder() {
+    Column() {
+      Text('📖 蓍草起卦教学')
+        .fontSize(18)
+        .fontWeight(FontWeight.Bold)
+        .fontColor('#2C2416')
+        .margin({ top: 20, bottom: 12 })
+
+      Scroll() {
+        Column() {
+          Text('教学图 1')
+            .fontSize(14)
+            .fontColor('#6B5D4F')
+            .fontWeight(FontWeight.Bold)
+            .margin({ bottom: 8 })
+          Image($rawfile('teaching1.jpg'))
+            .width('100%')
+            .objectFit(ImageFit.Contain)
+            .borderRadius(8)
+
+          Text('教学图 2')
+            .fontSize(14)
+            .fontColor('#6B5D4F')
+            .fontWeight(FontWeight.Bold)
+            .margin({ top: 16, bottom: 8 })
+          Image($rawfile('teaching2.jpg'))
+            .width('100%')
+            .objectFit(ImageFit.Contain)
+            .borderRadius(8)
+
+          Text('教学图 3')
+            .fontSize(14)
+            .fontColor('#6B5D4F')
+            .fontWeight(FontWeight.Bold)
+            .margin({ top: 16, bottom: 8 })
+          Image($rawfile('teaching3.jpg'))
+            .width('100%')
+            .objectFit(ImageFit.Contain)
+            .borderRadius(8)
+        }
+        .width('100%')
+        .padding({ bottom: 20 })
       }
       .layoutWeight(1)
     }

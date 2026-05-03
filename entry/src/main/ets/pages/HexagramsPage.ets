@@ -1,6 +1,6 @@
 import { HEXAGRAMS, getHexagramByTrigrams } from '../data/HexagramsData';
 import { getTrigramById, findTrigramByLines } from '../data/TrigramsData';
-import { Hexagram, HexagramLine, Interpretation, Trigram } from '../model/DivinationModel';
+import { Hexagram, HexagramLine, Interpretation, Trigram, MultipleJudgment } from '../model/DivinationModel';
 
 
 @Component
@@ -332,11 +332,28 @@ export struct HexagramsPage {
                 .fontSize(12)
                 .fontColor('#B94A48')
                 .fontWeight(FontWeight.Bold)
-              ForEach(this.sheetHex.multipleJudgments, (item: string) => {
-                Text(item)
-                  .fontSize(13)
-                  .fontColor('#5C4A32')
-                  .margin({ top: 4 })
+              ForEach(this.sheetHex.multipleJudgments, (mj: MultipleJudgment) => {
+                Column() {
+                  Text(mj.category)
+                    .fontSize(11)
+                    .fontColor('#8B7355')
+                    .fontWeight(FontWeight.Bold)
+                  Text(mj.content)
+                    .fontSize(12)
+                    .fontColor('#5C4A32')
+                    .margin({ top: 2 })
+                    .lineHeight(18)
+                  Text('——' + mj.source)
+                    .fontSize(10)
+                    .fontColor('#A99285')
+                    .margin({ top: 2 })
+                }
+                .width('100%')
+                .margin({ top: 8 })
+                .padding(8)
+                .backgroundColor('#FFF9F0')
+                .borderRadius(6)
+                .alignItems(HorizontalAlign.Start)
               })
             }
             .width('100%')
@@ -442,11 +459,28 @@ export struct HexagramsPage {
                         .fontSize(11)
                         .fontColor('#8B7355')
                         .fontWeight(FontWeight.Bold)
-                      ForEach(line.multipleJudgments, (mj: string) => {
-                        Text(mj)
-                          .fontSize(12)
-                          .fontColor('#5C4A32')
-                          .margin({ top: 2 })
+                      ForEach(line.multipleJudgments, (mj: MultipleJudgment) => {
+                        Column() {
+                          Text(mj.category)
+                            .fontSize(10)
+                            .fontColor('#A99285')
+                            .fontWeight(FontWeight.Bold)
+                          Text(mj.content)
+                            .fontSize(11)
+                            .fontColor('#5C4A32')
+                            .margin({ top: 1 })
+                            .lineHeight(16)
+                          Text('——' + mj.source)
+                            .fontSize(9)
+                            .fontColor('#B8A898')
+                            .margin({ top: 1 })
+                        }
+                        .width('100%')
+                        .margin({ top: 4 })
+                        .padding(6)
+                        .backgroundColor('#FFF9F0')
+                        .borderRadius(4)
+                        .alignItems(HorizontalAlign.Start)
                       })
                     }
                     .width('100%')

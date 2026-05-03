@@ -21,6 +21,16 @@ export interface TrigramInfo {
   number?: number;
 }
 
+// 一辞多断来源类型
+export type JudgmentSource = '高岛易断' | '断易天机' | '增删卜易';
+
+// 一辞多断项
+export interface MultipleJudgment {
+  category: string;
+  content: string;
+  source: JudgmentSource;
+}
+
 // 爻数据
 export interface HexagramLine {
   position: number;
@@ -28,7 +38,7 @@ export interface HexagramLine {
   text: string;
   interpretation: string;
   classicComment?: string;
-  multipleJudgments?: string[];
+  multipleJudgments?: MultipleJudgment[];
   takashiCase?: string;
 }
 
@@ -54,7 +64,7 @@ export interface Hexagram {
   interpretation: Interpretation;
   lines: HexagramLine[];
   classicComment?: string;
-  multipleJudgments?: string[];
+  multipleJudgments?: MultipleJudgment[];
   takashiCase?: string;
 }
 
@@ -76,7 +86,7 @@ export interface MovingLineInfo {
   positionMeaning?: string;
   changeMeaning?: string;
   classicComment?: string;
-  multipleJudgments?: string[];
+  multipleJudgments?: MultipleJudgment[];
   takashiCase?: string;
 }
 
