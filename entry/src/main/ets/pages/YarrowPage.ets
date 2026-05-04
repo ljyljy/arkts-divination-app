@@ -112,6 +112,7 @@ export struct YarrowPage {
   @State newNoteContent: string = ''
   @State editingNoteId: string = ''
   @State editingNoteContent: string = ''
+  @State notesVersion: number = 0
   @State showContentSheet: boolean = false
   @State sheetTitle: string = ''
   @State sheetContent: string = ''
@@ -442,6 +443,41 @@ export struct YarrowPage {
               .alignItems(HorizontalAlign.Start)
             }
 
+            if (this.result.hexagram?.multipleJudgments && this.result.hexagram.multipleJudgments.length > 0) {
+              Column() {
+                Text('📜 本卦一辞多断')
+                  .fontSize(14)
+                  .fontColor('#B94A48')
+                  .fontWeight(FontWeight.Bold)
+                  .margin({ bottom: 8 })
+                ForEach(this.result.hexagram.multipleJudgments, (mj: MultipleJudgment) => {
+                  Column() {
+                    Text(mj.category)
+                      .fontSize(11)
+                      .fontColor('#8B7355')
+                      .fontWeight(FontWeight.Bold)
+                    Text(mj.content)
+                      .fontSize(12)
+                      .fontColor('#5C4A32')
+                      .margin({ top: 2 })
+                      .lineHeight(18)
+                  }
+                  .width('100%')
+                  .margin({ top: 8 })
+                  .padding(8)
+                  .backgroundColor('#FFF9F0')
+                  .borderRadius(6)
+                  .alignItems(HorizontalAlign.Start)
+                })
+              }
+              .width('100%')
+              .padding(12)
+              .backgroundColor('#FFFEF9')
+              .borderRadius(8)
+              .margin({ top: 12 })
+              .alignItems(HorizontalAlign.Start)
+            }
+
             if (this.result.movingLine) {
               Column() {
                 Text(`⚡ 动爻 · ${this.result.movingLine.name}`)
@@ -508,15 +544,20 @@ export struct YarrowPage {
                       .lineHeight(18)
                       .maxLines(2)
                       .textOverflow({ overflow: TextOverflow.Ellipsis })
-                    Text('查看全部 ›')
-                      .fontSize(12)
-                      .fontColor('#B94A48')
-                      .margin({ top: 4 })
-                      .onClick(() => {
-                        this.sheetTitle = '📚 经传释义';
-                        this.sheetContent = this.result!.movingLine!.classicComment!;
-                        this.showContentSheet = true;
-                      })
+                    Row() {
+                      Text('查看全部 ›')
+                        .fontSize(12)
+                        .fontColor('#B94A48')
+                        .padding(8)
+                        .onClick(() => {
+                          this.sheetTitle = '📚 经传释义';
+                          this.sheetContent = this.result!.movingLine!.classicComment!;
+                          this.showContentSheet = true;
+                        })
+                    }
+                    .margin({ top: 4 })
+                    .width('100%')
+                    .justifyContent(FlexAlign.End)
                   }
                   .width('100%')
                   .padding(12)
@@ -528,7 +569,7 @@ export struct YarrowPage {
 
                 if (this.result.movingLine.multipleJudgments && this.result.movingLine.multipleJudgments.length > 0) {
                   Column() {
-                    Text('🔮 一辞多断')
+                    Text('📜 一辞多断')
                       .fontSize(12)
                       .fontColor('#B94A48')
                       .fontWeight(FontWeight.Bold)
@@ -543,10 +584,6 @@ export struct YarrowPage {
                           .fontColor('#5C4A32')
                           .margin({ top: 2 })
                           .lineHeight(18)
-                        Text('——' + mj.source)
-                          .fontSize(10)
-                          .fontColor('#A99285')
-                          .margin({ top: 2 })
                       }
                       .width('100%')
                       .margin({ top: 8 })
@@ -577,15 +614,20 @@ export struct YarrowPage {
                       .lineHeight(18)
                       .maxLines(2)
                       .textOverflow({ overflow: TextOverflow.Ellipsis })
-                    Text('查看全部 ›')
-                      .fontSize(12)
-                      .fontColor('#B94A48')
-                      .margin({ top: 4 })
-                      .onClick(() => {
-                        this.sheetTitle = '📜 高岛活断实例';
-                        this.sheetContent = this.result!.movingLine!.takashiCase!;
-                        this.showContentSheet = true;
-                      })
+                    Row() {
+                      Text('查看全部 ›')
+                        .fontSize(12)
+                        .fontColor('#B94A48')
+                        .padding(8)
+                        .onClick(() => {
+                          this.sheetTitle = '📜 高岛活断实例';
+                          this.sheetContent = this.result!.movingLine!.takashiCase!;
+                          this.showContentSheet = true;
+                        })
+                    }
+                    .margin({ top: 4 })
+                    .width('100%')
+                    .justifyContent(FlexAlign.End)
                   }
                   .width('100%')
                   .padding(12)
@@ -688,13 +730,13 @@ export struct YarrowPage {
                           if (this.result && this.editingNoteContent.trim()) {
                             const user = this.username.trim() || await getCurrentUser();
                             await editNote(user, this.result.id, note.id, this.editingNoteContent.trim());
-                            const idx = this.result.notes!.findIndex(n => n.id === note.id);
-                            if (idx >= 0) {
-                              this.result.notes![idx] = {
-                                id: note.id, content: this.editingNoteContent.trim(),
-                                createdAt: note.createdAt, updatedAt: new Date().toISOString()
-                              };
-                            }
+                            const updatedNotes = this.result.notes?.map(n =>
+                              n.id === note.id
+                                ? { id: note.id, content: this.editingNoteContent.trim(), createdAt: note.createdAt, updatedAt: new Date().toISOString() }
+                                : n
+                            );
+                            this.result.notes = updatedNotes;
+                            this.notesVersion++;
                           }
                           this.editingNoteId = '';
                           this.editingNoteContent = '';
@@ -733,6 +775,7 @@ export struct YarrowPage {
                             const user = this.username.trim() || await getCurrentUser();
                             await deleteNote(user, this.result.id, note.id);
                             this.result.notes = this.result.notes?.filter(n => n.id !== note.id);
+                            this.notesVersion++;
                           }
                         })
                     }
@@ -744,7 +787,7 @@ export struct YarrowPage {
                   .margin({ top: 6 })
                   .alignItems(VerticalAlign.Top)
                 }
-              })
+              }, (note: NoteItem) => `${note.id}-${this.notesVersion}`)
             }
 
             if (this.isAddingNote) {
@@ -775,9 +818,12 @@ export struct YarrowPage {
                   .onClick(async () => {
                     if (this.result && this.newNoteContent.trim()) {
                       const user = this.username.trim() || await getCurrentUser();
-                      await addNote(user, this.result.id, this.newNoteContent.trim());
-                      if (!this.result.notes) { this.result.notes = []; }
-                      this.result.notes.push({ id: Date.now().toString(), content: this.newNoteContent.trim(), createdAt: new Date().toISOString() });
+                      const noteId = await addNote(user, this.result.id, this.newNoteContent.trim());
+                      if (noteId) {
+                        const notes = this.result.notes || [];
+                        this.result.notes = [...notes, { id: noteId, content: this.newNoteContent.trim(), createdAt: new Date().toISOString() }];
+                        this.notesVersion++;
+                      }
                     }
                     this.isAddingNote = false;
                     this.newNoteContent = '';
@@ -831,7 +877,7 @@ export struct YarrowPage {
     .height('100%')
     .backgroundColor('#F5F1E8')
     .bindSheet($$this.showContentSheet, this.ContentSheetBuilder(), {
-      height: SheetSize.LARGE,
+      height: SheetSize.MEDIUM,
       showClose: true,
       dragBar: true,
       backgroundColor: Color.Transparent

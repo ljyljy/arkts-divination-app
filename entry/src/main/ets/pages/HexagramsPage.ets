@@ -120,7 +120,7 @@ export struct HexagramsPage {
     .height('100%')
     .backgroundColor('#F5F1E8')
     .bindSheet(this.isSheetOpen, this.SheetBuilder(), {
-      height: 'MEDIUM',
+      height: 'LARGE',
       dragBar: true,
       showClose: true,
       backgroundColor: '#FFFEF9',
@@ -343,10 +343,6 @@ export struct HexagramsPage {
                     .fontColor('#5C4A32')
                     .margin({ top: 2 })
                     .lineHeight(18)
-                  Text('——' + mj.source)
-                    .fontSize(10)
-                    .fontColor('#A99285')
-                    .margin({ top: 2 })
                 }
                 .width('100%')
                 .margin({ top: 8 })
@@ -455,7 +451,7 @@ export struct HexagramsPage {
 
                   if (line.multipleJudgments && line.multipleJudgments.length > 0) {
                     Column() {
-                      Text('🔮 一辞多断')
+                      Text('📜 一辞多断')
                         .fontSize(11)
                         .fontColor('#8B7355')
                         .fontWeight(FontWeight.Bold)
@@ -470,10 +466,6 @@ export struct HexagramsPage {
                             .fontColor('#5C4A32')
                             .margin({ top: 1 })
                             .lineHeight(16)
-                          Text('——' + mj.source)
-                            .fontSize(9)
-                            .fontColor('#B8A898')
-                            .margin({ top: 1 })
                         }
                         .width('100%')
                         .margin({ top: 4 })

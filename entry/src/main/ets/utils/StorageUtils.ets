@@ -179,10 +179,10 @@ function generateNoteId(): string {
 }
 
 // 添加笔记
-export async function addNote(username: string, resultId: string, content: string): Promise<boolean> {
+export async function addNote(username: string, resultId: string, content: string): Promise<string | null> {
   try {
     const prefs = getPreferences();
-    if (!prefs) return false;
+    if (!prefs) return null;
     const data = (await prefs.get(HISTORY_KEY, '{}')) as string;
     const allHistory: Record<string, DivinationResult[]> = parseAllHistory(data);
     const targetUser: string = username || DEFAULT_USER;
@@ -193,20 +193,21 @@ export async function addNote(username: string, resultId: string, content: strin
         if (!allHistory[targetUser][itemIndex].notes) {
           allHistory[targetUser][itemIndex].notes = [];
         }
+        const noteId = generateNoteId();
         const note: NoteItem = {
-          id: generateNoteId(),
+          id: noteId,
           content: content,
           createdAt: new Date().toISOString()
         };
         allHistory[targetUser][itemIndex].notes!.push(note);
         await prefs.put(HISTORY_KEY, JSON.stringify(allHistory));
         await prefs.flush();
-        return true;
+        return noteId;
       }
     }
-    return false;
+    return null;
   } catch (e) {
-    return false;
+    return null;
   }
 }
 

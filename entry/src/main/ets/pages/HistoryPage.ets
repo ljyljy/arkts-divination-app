@@ -268,18 +268,18 @@ export struct HistoryPage {
       .backgroundColor('#F5F1E8')
 
       // 全屏详情页（带滑入动画和手势）
-      if (this.showDetail) {
-        this.DetailFullScreenBuilder()
-      }
-
       if (this.showUserHistory) {
         this.UserHistoryBuilder()
+      }
+
+      if (this.showDetail) {
+        this.DetailFullScreenBuilder()
       }
     }
     .width('100%')
     .height('100%')
     .bindSheet($$this.showContentSheet, this.ContentSheetBuilder(), {
-      height: SheetSize.LARGE,
+      height: SheetSize.MEDIUM,
       showClose: true,
       dragBar: true,
       backgroundColor: Color.Transparent
@@ -753,13 +753,16 @@ export struct HistoryPage {
                       Text('查看全部 ›')
                         .fontSize(12)
                         .fontColor('#B94A48')
+                        .padding(8)
+                        .onClick(() => {
+                          this.sheetTitle = '📚 经传释义';
+                          this.sheetContent = this.detailItem!.movingLine!.classicComment!;
+                          this.showContentSheet = true;
+                        })
                     }
                     .margin({ top: 4 })
-                    .onClick(() => {
-                      this.sheetTitle = '📚 经传释义';
-                      this.sheetContent = this.detailItem!.movingLine!.classicComment!;
-                      this.showContentSheet = true;
-                    })
+                    .width('100%')
+                    .justifyContent(FlexAlign.End)
                   }
                   .width('100%')
                   .padding(12)
@@ -771,7 +774,7 @@ export struct HistoryPage {
 
                 if (this.detailItem.movingLine.multipleJudgments && this.detailItem.movingLine.multipleJudgments.length > 0) {
                   Column() {
-                    Text('🔮 一辞多断')
+                    Text('📜 一辞多断')
                       .fontSize(12)
                       .fontColor('#B94A48')
                       .fontWeight(FontWeight.Bold)
@@ -807,13 +810,16 @@ export struct HistoryPage {
                       Text('查看全部 ›')
                         .fontSize(12)
                         .fontColor('#B94A48')
+                        .padding(8)
+                        .onClick(() => {
+                          this.sheetTitle = '📜 高岛活断实例';
+                          this.sheetContent = this.detailItem!.movingLine!.takashiCase!;
+                          this.showContentSheet = true;
+                        })
                     }
                     .margin({ top: 4 })
-                    .onClick(() => {
-                      this.sheetTitle = '📜 高岛活断实例';
-                      this.sheetContent = this.detailItem!.movingLine!.takashiCase!;
-                      this.showContentSheet = true;
-                    })
+                    .width('100%')
+                    .justifyContent(FlexAlign.End)
                   }
                   .width('100%')
                   .padding(12)
