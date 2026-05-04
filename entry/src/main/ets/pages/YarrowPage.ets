@@ -164,6 +164,12 @@ export struct YarrowPage {
               promptAction.showToast({ message: '教学图为大模型生成，仅作参考。', duration: 2000 });
             }, 300);
           })
+          .bindSheet($$this.showTeachingSheet, this.TeachingSheetBuilder(), {
+            height: SheetSize.LARGE,
+            showClose: true,
+            dragBar: true,
+            backgroundColor: Color.Transparent
+          })
 
         Column() {
           Row() {
@@ -478,6 +484,44 @@ export struct YarrowPage {
               .alignItems(HorizontalAlign.Start)
             }
 
+            if (this.result.hexagram?.takashiCase) {
+              Column() {
+                Text('📜 本卦高岛活断')
+                  .fontSize(14)
+                  .fontColor('#B94A48')
+                  .fontWeight(FontWeight.Bold)
+                  .margin({ bottom: 8 })
+                Text(this.result.hexagram.takashiCase)
+                  .fontSize(12)
+                  .fontColor('#5C4A32')
+                  .lineHeight(18)
+                  .maxLines(3)
+                  .textOverflow({ overflow: TextOverflow.Ellipsis })
+                Row() {
+                  Button('查看全部 ›')
+                    .fontSize(12)
+                    .fontColor('#B94A48')
+                    .backgroundColor(Color.Transparent)
+                    .height(24)
+                    .padding({ left: 8, right: 8 })
+                    .onClick(() => {
+                      this.sheetTitle = '📜 本卦高岛活断';
+                      this.sheetContent = this.result!.hexagram!.takashiCase!;
+                      this.showContentSheet = true;
+                    })
+                }
+                .margin({ top: 4 })
+                .width('100%')
+                .justifyContent(FlexAlign.End)
+              }
+              .width('100%')
+              .padding(12)
+              .backgroundColor('#FFFEF9')
+              .borderRadius(8)
+              .margin({ top: 12 })
+              .alignItems(HorizontalAlign.Start)
+            }
+
             if (this.result.movingLine) {
               Column() {
                 Text(`⚡ 动爻 · ${this.result.movingLine.name}`)
@@ -545,10 +589,12 @@ export struct YarrowPage {
                       .maxLines(2)
                       .textOverflow({ overflow: TextOverflow.Ellipsis })
                     Row() {
-                      Text('查看全部 ›')
+                      Button('查看全部 ›')
                         .fontSize(12)
                         .fontColor('#B94A48')
-                        .padding(8)
+                        .backgroundColor(Color.Transparent)
+                        .height(24)
+                        .padding({ left: 8, right: 8 })
                         .onClick(() => {
                           this.sheetTitle = '📚 经传释义';
                           this.sheetContent = this.result!.movingLine!.classicComment!;
@@ -615,10 +661,12 @@ export struct YarrowPage {
                       .maxLines(2)
                       .textOverflow({ overflow: TextOverflow.Ellipsis })
                     Row() {
-                      Text('查看全部 ›')
+                      Button('查看全部 ›')
                         .fontSize(12)
                         .fontColor('#B94A48')
-                        .padding(8)
+                        .backgroundColor(Color.Transparent)
+                        .height(24)
+                        .padding({ left: 8, right: 8 })
                         .onClick(() => {
                           this.sheetTitle = '📜 高岛活断实例';
                           this.sheetContent = this.result!.movingLine!.takashiCase!;
@@ -878,12 +926,6 @@ export struct YarrowPage {
     .backgroundColor('#F5F1E8')
     .bindSheet($$this.showContentSheet, this.ContentSheetBuilder(), {
       height: SheetSize.MEDIUM,
-      showClose: true,
-      dragBar: true,
-      backgroundColor: Color.Transparent
-    })
-    .bindSheet($$this.showTeachingSheet, this.TeachingSheetBuilder(), {
-      height: SheetSize.LARGE,
       showClose: true,
       dragBar: true,
       backgroundColor: Color.Transparent

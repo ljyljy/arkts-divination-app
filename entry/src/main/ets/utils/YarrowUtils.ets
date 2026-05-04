@@ -177,6 +177,9 @@ export function performYarrowDivination(question: string, upperNum: number, lowe
       image: hexagram.image,
       interpretation: hexagram.interpretation,
       lines: hexagram.lines,
+      classicComment: hexagram.classicComment,
+      multipleJudgments: hexagram.multipleJudgments,
+      takashiCase: hexagram.takashiCase,
       upperTrigramInfo: { name: upperTrigram.name, symbol: upperTrigram.symbol, nature: upperTrigram.nature, number: upperNum },
       lowerTrigramInfo: { name: lowerTrigram.name, symbol: lowerTrigram.symbol, nature: lowerTrigram.nature, number: lowerNum }
     },

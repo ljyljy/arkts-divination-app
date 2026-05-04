@@ -152,6 +152,9 @@ export function calculateHexagramResult(lines: number[]): DivinationResult {
       image: hexagram.image,
       interpretation: hexagram.interpretation,
       lines: hexagram.lines,
+      classicComment: hexagram.classicComment,
+      multipleJudgments: hexagram.multipleJudgments,
+      takashiCase: hexagram.takashiCase,
       upperTrigramInfo: upperTriInfo,
       lowerTrigramInfo: lowerTriInfo,
       rawLines: lines

@@ -750,10 +750,12 @@ export struct HistoryPage {
                       .maxLines(2)
                       .textOverflow({ overflow: TextOverflow.Ellipsis })
                     Row() {
-                      Text('查看全部 ›')
+                      Button('查看全部 ›')
                         .fontSize(12)
                         .fontColor('#B94A48')
-                        .padding(8)
+                        .backgroundColor(Color.Transparent)
+                        .height(24)
+                        .padding({ left: 8, right: 8 })
                         .onClick(() => {
                           this.sheetTitle = '📚 经传释义';
                           this.sheetContent = this.detailItem!.movingLine!.classicComment!;
@@ -807,10 +809,12 @@ export struct HistoryPage {
                       .maxLines(2)
                       .textOverflow({ overflow: TextOverflow.Ellipsis })
                     Row() {
-                      Text('查看全部 ›')
+                      Button('查看全部 ›')
                         .fontSize(12)
                         .fontColor('#B94A48')
-                        .padding(8)
+                        .backgroundColor(Color.Transparent)
+                        .height(24)
+                        .padding({ left: 8, right: 8 })
                         .onClick(() => {
                           this.sheetTitle = '📜 高岛活断实例';
                           this.sheetContent = this.detailItem!.movingLine!.takashiCase!;

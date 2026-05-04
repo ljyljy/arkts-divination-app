@@ -2179,72 +2179,85 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 25,
     position: 1,
     judgments: [
-      { category: '占问时运', content: '目下运途蹇滞，不可妄动，动则多咎。' },
-      { category: '问商业', content: '宜守旧业，不宜新谋。' },
-      { category: '问家宅', content: '宅运未亨，宜安分守己。' },
-      { category: '问疾病', content: '宜静养，勿躁动。' },
-      { category: '问婚嫁', content: '不宜急进，待时而后可。' },
-      { category: '问行人', content: '归期未定。' }
+      { category: '占问时运', content: '目下吉，但宜出而有为，不宜杜守家居。' },
+      { category: '问商业', content: '利行商，不利坐贾。' },
+      { category: '问家宅', content: '宜迁居，吉。' },
+      { category: '问战征', content: '宜进攻，吉。' },
+      { category: '问疾病', content: '宜出外就医，吉。' },
+      { category: '问行人', content: '或有事他往，吉。' },
+      { category: '问六甲', content: '生男，来月可产，吉。' },
+      { category: '问婚姻', content: '赘婿吉。' },
+      { category: '问失物', content: '宜往外寻之。' }
     ]
   },
   {
     hexagramId: 25,
     position: 2,
     judgments: [
-      { category: '占问时运', content: '目下运途平平，宜守正待时。' },
-      { category: '问商业', content: '利在农耕，商旅未利。' },
-      { category: '问家宅', content: '田园之利，可保无虞。' },
-      { category: '问疾病', content: '宜调养脾胃。' },
-      { category: '问婚嫁', content: '良缘可成。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问时运', content: '目下运得其正，自有意外财饷，大利。' },
+      { category: '问商业', content: '不谋而获，却得大利，吉。' },
+      { category: '问家宅', content: '此宅想是承继之产，或为人经管庄舍。' },
+      { category: '问战征', content: '前途倒戈，有不胜而胜之象。' },
+      { category: '问疾病', content: '"勿药有喜"。' },
+      { category: '问婚姻', content: '是招赘之亲。' },
+      { category: '问行人', content: '在外得利，一时未归。' },
+      { category: '问六甲', content: '生女。' }
     ]
   },
   {
     hexagramId: 25,
     position: 3,
     judgments: [
-      { category: '占问时运', content: '运途多舛，防有意外之灾。' },
-      { category: '问商业', content: '防有失脱，宜谨慎。' },
-      { category: '问家宅', content: '防盗贼侵入。' },
-      { category: '问疾病', content: '防有外伤。' },
-      { category: '问行人', content: '中途有阻。' },
-      { category: '问六甲', content: '生男，防有惊。' }
+      { category: '占问时运', content: '目下运值尴尬，防有意外之事，宜谨慎。' },
+      { category: '问商业', content: '防他人占利，而己耗财。' },
+      { category: '问家宅', content: '此宅恐为外人侵占。' },
+      { category: '问战征', content: '行军得胜，守军防有损败。' },
+      { category: '问疾病', content: '此病恐是外来人传染，可虑。' },
+      { category: '问行人', content: '归则归矣，恐家人有灾。' },
+      { category: '问婚嫁', content: '宜与远人结亲，吉。' },
+      { category: '问失物', content: '已被行人拾去。' }
     ]
   },
   {
     hexagramId: 25,
     position: 4,
     judgments: [
-      { category: '占问时运', content: '目下运途平稳，宜守正。' },
-      { category: '问商业', content: '可保无咎，不宜贪利。' },
-      { category: '问家宅', content: '家宅平安。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '可成。' },
-      { category: '问六甲', content: '生女。' }
+      { category: '占问时运', content: '目下气运平顺，循分则有获，妄动则有咎。' },
+      { category: '问商业', content: '坚守旧业，自然亨通。' },
+      { category: '问家宅', content: '此宅本是祖基，宜永保之，毋坠。' },
+      { category: '问战征', content: '已占入外卦之地，宜坚守城池，切勿妄进。' },
+      { category: '问疾病', content: '此时宜安静调养，来月"勿药"而愈。' },
+      { category: '问行人', content: '一时未归，在外无咎。' },
+      { category: '问六甲', content: '生男。' },
+      { category: '问失物', content: '必可复得。' }
     ]
   },
   {
     hexagramId: 25,
     position: 5,
     judgments: [
-      { category: '占问时运', content: '目下运途亨通，无往不利。' },
-      { category: '问商业', content: '大吉，可获利。' },
-      { category: '问家宅', content: '家道日隆。' },
-      { category: '问疾病', content: '勿药有喜。' },
-      { category: '问婚嫁', content: '良缘天定。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问时运', content: '目下气运当正，意外之事，不必介意，全乎在我而已。' },
+      { category: '问商业', content: '凡一时物价，无故上落，皆无害商业，过时自平，切勿扰动。' },
+      { category: '问家宅', content: '防有风扫雪压倾圮之患，然无大害，致有喜兆。' },
+      { category: '问战征', content: '防军队中有时疫流行之患，宜洁净营屯，勿妄用药。无咎。' },
+      { category: '问行人', content: '恐中途有涉意外之事，然即归来。' },
+      { category: '问讼事', content: '有意外牵涉，不辩自释。' },
+      { category: '问六甲', content: '生男。' },
+      { category: '问失物', content: '不寻自得。' }
     ]
   },
   {
     hexagramId: 25,
     position: 6,
     judgments: [
-      { category: '占问时运', content: '运途已极，不可妄动，动必有灾。' },
-      { category: '问商业', content: '宜止不宜行，行则失利。' },
-      { category: '问家宅', content: '宜安居，不宜迁徙。' },
-      { category: '问疾病', content: '静养可愈，躁动则危。' },
-      { category: '问行人', content: '归期尚早。' },
-      { category: '问六甲', content: '生女。' }
+      { category: '占问时运', content: '好运已终，宜安守勿动，动则终凶。' },
+      { category: '问商业', content: '历来贸易，颇称得利，兹值岁终，或当时令交换之际，宜暂静守，切勿再进，防有损耗。' },
+      { category: '问家宅', content: '此虽旧宅，居之则吉，慎勿他迁，迁则有眚。' },
+      { category: '问战征', content: '地步已极，不可复进，进则有害。' },
+      { category: '问疾病', content: '必是老年，宜颐养自适。' },
+      { category: '问行人', content: '即日可归，归后切勿出行。' },
+      { category: '问六甲', content: '生男。' },
+      { category: '问失物', content: '恐穷追不得。' }
     ]
   },
   {
@@ -2266,36 +2279,42 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 26,
     position: 1,
     judgments: [
-      { category: '占问时运', content: '目下运途未通，宜止不宜进。' },
-      { category: '问商业', content: '暂勿经营，待时而动。' },
-      { category: '问家宅', content: '宅运未亨，宜守。' },
-      { category: '问疾病', content: '宜静养。' },
-      { category: '问婚嫁', content: '未遂。' },
-      { category: '问行人', content: '未归。' }
+      { category: '占问战征', content: '宜守不宜攻，斯无害也，必待四爻援兵得力，方可大进获胜。' },
+      { category: '问营商', content: '目下资本犹浅，宜谨慎自守，免致灾害，后得帮手相助，自能获利。' },
+      { category: '问家宅', content: '是新造之宅，为前面山势压制，屋宅不能过高，然无咎也。' },
+      { category: '问功名', content: '才学虽高，而初次求名，不宜发泄太早，宜自抑止，所贵大器晚成也。' },
+      { category: '问六甲', content: '可占一索生男。' },
+      { category: '问讼事', content: '不宜健进，健进则有灾。' },
+      { category: '问婚姻', content: '初阳为四爻所畜，是夫将受制于妻也；在夫能顺从其畜，亦无灾也。' },
+      { category: '问出门', content: '现宜暂止，以待时运。' },
+      { category: '问疾病', content: '现虽有病，可保无虞。' },
+      { category: '问失物', content: '待后自可寻获。' }
     ]
   },
   {
     hexagramId: 26,
     position: 2,
     judgments: [
-      { category: '占问时运', content: '运途有阻，宜守不宜进。' },
-      { category: '问商业', content: '车脱辐，行不利，宜止。' },
-      { category: '问家宅', content: '宅运平平。' },
-      { category: '问疾病', content: '症在手足，宜调治。' },
-      { category: '问婚嫁', content: '有阻。' },
-      { category: '问六甲', content: '生女。' }
+      { category: '占问战征', content: '若锐意径进，防有辙乱旗靡之祸，致一败而不可复收，惟以退为进，斯无尤矣。' },
+      { category: '问营商', content: '凡有货物，宜早脱售，虽无大利，亦无耗失。' },
+      { category: '问家宅', content: '必是破败旧家，惟其能退然自守，家业自有复兴之象，故无尤也。' },
+      { category: '问功名', content: '宜待时，毋躁进也。' },
+      { category: '问婚姻', content: '《小畜》三爻"舆说輹，夫妻反目"，是不吉也；此二爻得中，与五相应，五居尊位，必是贵婚，大吉。' },
+      { category: '问疾病', content: '定是腹疾，一时难愈，然无害也。' },
+      { category: '问六甲', content: '生男，防有足疾。' },
+      { category: '问讼事', content: '败而复和。' }
     ]
   },
   {
     hexagramId: 26,
     position: 3,
     judgments: [
-      { category: '占问时运', content: '运途亨通，利有攸往。' },
-      { category: '问商业', content: '良马逐，利艰贞，大吉。' },
-      { category: '问家宅', content: '家道日兴。' },
-      { category: '问战征', content: '利涉大川，有功。' },
-      { category: '问疾病', content: '宜慎调养。' },
-      { category: '问婚嫁', content: '可成。' },
+      { category: '占问战征', content: '有马到功成之象，然必先临事而惧，斯无往不利也。' },
+      { category: '问营商', content: '三爻与应合志，是必卖买同心；曰"良马逐"，是必留适快捷；曰"利艰贞"，是虽遇险无虞也。大吉。' },
+      { category: '问功名', content: '有云霄得路之象。' },
+      { category: '问家宅', content: '必是勤俭起家，目下履当其位，家业日进，犹能安不忘危，故无往不利。' },
+      { category: '问婚姻', content: '三以上九为应，上九处畜之极，是全盛之象，占婚姻而得此爻，男女合志，大吉之兆。' },
+      { category: '问疾病', content: '宜谨慎调养，可保无虞。' },
       { category: '问六甲', content: '生男。' }
     ]
   },
@@ -2303,36 +2322,39 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 26,
     position: 4,
     judgments: [
-      { category: '占问时运', content: '运途初亨，大吉。' },
-      { category: '问商业', content: '童牛之牿，元吉，有利。' },
-      { category: '问家宅', content: '家宅平安，有喜。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '良缘。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问战征', content: '有强邻压制小国之象，幸四与上相应合志，得以保全。有喜。' },
+      { category: '问营商', content: '爻曰"童牛"，谓初阳也，意以贸易新出，时货为利。"牿"，谓牢也，意以畜积固藏为利，故曰"元吉"。' },
+      { category: '问功名', content: '六四辰在丑，上值斗，石氏曰"斗，将相爵禄之位"；又"丑，土也，其禽为牛"。孔子曰："犁牛之子，骍且角，虽欲勿用，山川其舍诸。"盖童牛者，祭天之牛也，其必进用也明矣，故《传》曰吉而有喜也。' },
+      { category: '问家宅', content: '《乾》为门，《艮》为庭，为庐，为舍，皆有家宅之象。"童牛"者，谓初九也，牿之者四也。初九者，阳之初也，必是初造之宅，为四所牿；必门前途径有阻，不能进行。终必亨通，故曰"有喜"。' },
+      { category: '问疾病', content: '曰"童牛"者，意必老牛舐犊，灾在幼子。' },
+      { category: '问六甲', content: '生男。' },
+      { category: '问婚嫁', content: '四在丑，丑上值牵牛；四应初九，初九辰在子，上值女。曰童牛，必是少年结婚，大吉。' },
+      { category: '问讼事', content: '"童牛之牿"，《说文》云，"牿，牛马牢也"，恐有囚牢之灾。至上九曰天衢亨，当解脱而有喜也。' }
     ]
   },
   {
     hexagramId: 26,
     position: 5,
     judgments: [
-      { category: '占问时运', content: '运途亨通，吉。' },
-      { category: '问商业', content: '豮豕之牙，吉，有利。' },
-      { category: '问家宅', content: '家道日隆。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '可成。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问战征', content: '系属《坎》，又属亥，是必在坎险湿泽之处，最宜畜意禁止，以防敌军豕突。能谋而后动，自然获吉。' },
+      { category: '问营商', content: '互，有互市之义，谓财物交互成市，正合近时通商之象。"豮豕"，谓小豕，譬如初次贸易，资本尚微，能受畜止，乃吉。' },
+      { category: '问功名', content: '此必年少求名，未免躁进，宜知自止，故曰"豮豕之牙，吉"也。' },
+      { category: '问家宅', content: '系属亥，水也，前必有二水，交互而流，是以吉也。' },
+      { category: '问疾病', content: '六五辰在卯，东方为木，又系属亥，亥为水，是必木旺水亏之症，宜自《节》止调养，方能有庆也。' },
+      { category: '问六甲', content: '生女。' },
+      { category: '问婚嫁', content: '六五爻辰在卯，为兔，五应二，九二爻辰在寅，为虎，寅卯相合。爻曰"豮豕"，豕属亥，亥与寅卯，木水相生，皆得制伏，大吉。' }
     ]
   },
   {
     hexagramId: 26,
     position: 6,
     judgments: [
-      { category: '占问时运', content: '运途大通，亨。' },
-      { category: '问商业', content: '何天之衢，亨，大吉。' },
-      { category: '问家宅', content: '家道大兴。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '良缘。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问战征', content: '上九爻辰在戌，上值奎、娄、胃，奎象白虎，主兵，娄星主兴兵聚众，胃星主征诛，皆军事也。爻曰"荷天之衢"，言旌旗载道，一战成功，故《象》曰"道大行也"。' },
+      { category: '问营商', content: '上应三；三曰"利艰贞"，知当时贸易尚多艰苦。至上为畜之极，畜极则通，故曰"荷天之衢，亨"，即三所云"利有攸往"者是也。《象》曰"道大行"，是必大获其利。' },
+      { category: '问功名', content: '爻曰"荷天之衢"，是即可谓青云得路之时也，大吉。' },
+      { category: '问家宅', content: '爻曰"荷天之衢"，衢大道也，知此宅必在大道之旁。"荷天"者，得天之佑也。"亨"吉也，其宅必吉。' },
+      { category: '问六甲', content: '生男。' },
+      { category: '问婚嫁', content: '想是天作之合，吉。' }
     ]
   },
   {
@@ -2355,47 +2377,45 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 27,
     position: 1,
     judgments: [
-      { category: '占问时运', content: '舍尔灵龟，观我朵颐，凶。' },
-      { category: '问商业', content: '贪人所有，必致失利。' },
-      { category: '问家宅', content: '宅运不佳。' },
-      { category: '问疾病', content: '饮食不节致病。' },
-      { category: '问婚嫁', content: '不利。' },
-      { category: '问六甲', content: '生女。' }
+      { category: '占问战征', content: '古者行军必先占卜以定吉凶，爻辞曰"舍尔灵龟，观我朵颐"，是不畏神明，而徒贪财物，故曰"凶"也。' },
+      { category: '问营商', content: '初爻为一阳之始，变而为《剥》，《剥》者解《剥》也，《象》曰"不利有攸往"，营商恐难获利。爻辞曰"尔""我"者，主宾也；"朵颐"者，口之动而食物也。舍"灵龟"而观"朵颐"，有利亦恐为他人食没也，故凶。' },
+      { category: '问功名', content: '"灵龟"者内心也，"朵颐"者外貌也，舍内而求外，舍己而观人，徒慕虚声，必无实学，功名难成。' },
+      { category: '问家宅', content: '宅中六神不安，恐有外鬼作祟，动来求食，凶。' },
+      { category: '问疾病', content: '病由饮食不节所致，宜问神祈祷，可愈。' },
+      { category: '问婚嫁', content: '尔我者，男女两姓也，"舍尔""观我"，显见两姓不谐，其故在争论礼物，必不成也，成亦必凶。' },
+      { category: '问讼事', content: '必由口舌启衅。曰"舍我"，曰"观尔"，是两造各执一见，一时不能就理。凶。' }
     ]
   },
   {
     hexagramId: 27,
     position: 2,
     judgments: [
-      { category: '占问时运', content: '颠颐，征凶。' },
-      { category: '问商业', content: '求人失败，宜自谋。' },
-      { category: '问家宅', content: '宅运不佳。' },
-      { category: '问疾病', content: '症在肠胃。' },
-      { category: '问婚嫁', content: '不利。' },
-      { category: '问六甲', content: '生女。' }
+      { category: '占问战征', content: '行军之要，首在纪律严明，步伐整齐。爻曰"颠颐，拂经"，是必背违纪律，步伐错乱也。凶莫大矣。' },
+      { category: '问营商', content: '二爻变《损》，《损》耗损也，于商不利。爻辞曰"颠"，曰"拂"，是明言买卖出入不合常理也，故曰"征凶"。' },
+      { category: '问功名', content: '"颠颐，拂经"，是不循常道，侥幸求成，虽得终凶。' },
+      { category: '问婚嫁', content: '六二阴柔居下，不奉上而反养下，是谓颠倒拂乱，不得其正，妇道不可问矣。故《象》曰"行失类也"，凶可知矣。' }
     ]
   },
   {
     hexagramId: 27,
     position: 3,
     judgments: [
-      { category: '占问时运', content: '拂颐，贞凶，十年勿用。' },
-      { category: '问商业', content: '违背正道，久而无利。' },
-      { category: '问家宅', content: '宅运多舛。' },
-      { category: '问疾病', content: '久病难愈。' },
-      { category: '问婚嫁', content: '不成。' },
-      { category: '问六甲', content: '生女。' }
+      { category: '占问战征', content: '师以贞为吉，拂贞则不吉。颐养也，养兵以备用，养拂其道，则兵不可用。《象》曰"道大悖也"，是犯上好乱，其败亡必矣，故凶。' },
+      { category: '问营商', content: '商业专在获利，曰"无攸利"，无论营业之大小，无论贩货之远近，皆无所得利也。极之"十年勿用"，是久而不成事也，故凶。' },
+      { category: '问功名', content: '功名之道，要在出而用世，得以利济群民，是将以道养天下也。若拂夫《颐》之正，而极之"十年勿用"，则将终其身而不得见用也，故曰"无攸利"。' },
+      { category: '问家宅', content: '是宅必久无人居住矣，且恐有鬼祟出而求食，家宅不安，住之不利。' },
+      { category: '问婚姻', content: '主闺门不贞，其婚事亦必过十年可成。' },
+      { category: '问六甲', content: '生男。' }
     ]
   },
   {
     hexagramId: 27,
     position: 4,
     judgments: [
-      { category: '占问时运', content: '颠颐吉，虎视眈眈，无咎。' },
-      { category: '问商业', content: '有利可图，宜守。' },
-      { category: '问家宅', content: '家宅平安。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '可成。' },
+      { category: '占问战征', content: '战士之勇者称虎臣，亦称虎贲，皆谓其有力也。然必须养其精锐而后用，非徒恃威猛而轻进也，故曰"颠颐，吉"。' },
+      { category: '问营商', content: '"颠"，恐一时物价有倒跌之象。"虎视耽耽，其欲逐逐"，譬言商人谋利之状，能视其贱价而置货，故吉而无咎。' },
+      { category: '问功名', content: '功名之兆，自古多取龙虎，是以吉也。"视耽耽"、"欲逐逐"，皆谋望腾达之意。' },
+      { category: '问家宅', content: '此宅必右山白虎居高，有怒目欲噬之形，幸四爻以阴居阴，位得其正，可无咎也。' },
       { category: '问六甲', content: '生男。' }
     ]
   },
@@ -2403,24 +2423,24 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 27,
     position: 5,
     judgments: [
-      { category: '占问时运', content: '拂经，居贞吉，不可涉大川。' },
-      { category: '问商业', content: '守正则吉，不宜冒险。' },
-      { category: '问家宅', content: '宅运平稳。' },
-      { category: '问疾病', content: '宜静养。' },
-      { category: '问婚嫁', content: '可成。' },
-      { category: '问六甲', content: '生女。' }
+      { category: '占问战征', content: '行军之道，有经有权，谓能达权，似不必拘拘守经也，故"拂经"无咎。曰"居贞吉"，则宜固守，不宜进攻。"不可涉大川"，恐于川流之际有伏兵；舟楫前往，防有风波之厄，皆当谨慎。' },
+      { category: '问营商', content: '利于坐贾，不利行商，贩货出洋，更为可虑。' },
+      { category: '问功名', content: '出而应试，难望成名。' },
+      { category: '问家宅', content: '上体属《艮》，山居则吉，若在临江近水，其宅不利。' },
+      { category: '问婚嫁', content: '恐有不得媒聘之正者，若能从一而终，则亦吉也。' },
+      { category: '问六甲', content: '生男。' },
+      { category: '问疾病', content: '病在五爻，久则四五个月，近则五六天，由于调养失宜。能安居静养则吉，若冒风雨，涉远路，恐难治也。' }
     ]
   },
   {
     hexagramId: 27,
     position: 6,
     judgments: [
-      { category: '占问时运', content: '由颐，厉吉，利涉大川。' },
-      { category: '问商业', content: '大吉，有利。' },
-      { category: '问家宅', content: '家道大兴。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '良缘。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问战征', content: '谚云"养兵千日，用在一朝"，其得效力疆场者，皆由平日教养来也，故曰"由颐"。兵，危事也，不知几经危历，乃得此克捷之功，故曰"厉吉"。"利涉大川"者，必其军士同心同德，斯得涉险，临危而不避，如周师之会孟津，诸葛之渡泸水是也。' },
+      { category: '问营商', content: '商业专在谋利，得利则足以养身养家。然商不能安居而得利也，必将涉历险途，或远贾重洋，方可获利，故曰"厉吉"。' },
+      { category: '问功名', content: '功名一道，由小而大，由卑而尊，然必忧勤惕厉，乃得功成名遂也。《象》曰"大有庆也"，是即所谓得之有喜也。' },
+      { category: '问疾病', content: '虽危得救，故曰"厉吉"。' },
+      { category: '问六甲', content: '生男，故《象》曰"大有庆也"。' }
     ]
   },
   {
@@ -2441,11 +2461,12 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 28,
     position: 1,
     judgments: [
-      { category: '占问时运', content: '藉用白茅，无咎。' },
-      { category: '问商业', content: '谨慎经营，无咎。' },
-      { category: '问家宅', content: '宅运平稳。' },
-      { category: '问疾病', content: '宜慎调养。' },
-      { category: '问婚嫁', content: '可成。' },
+      { category: '占问战征', content: '当此初次出师，最忌刚暴过甚，宜宽柔待下。' },
+      { category: '问营商', content: '贩运之货，必是药品，或是茶叶木棉，其色必白，其质必柔，均可获利。' },
+      { category: '问功名', content: '拔茅连茹，是有连类同登之象。' },
+      { category: '问家宅', content: '其宅必近卑湿低下之处，屋外蔓草荒芜，建筑也。' },
+      { category: '问疾病', content: '病体柔弱，下焦有湿，须用温燥之药治之。' },
+      { category: '问失物', content: '于草地上觅之。' },
       { category: '问六甲', content: '生女。' }
     ]
   },
@@ -2453,59 +2474,59 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 28,
     position: 2,
     judgments: [
-      { category: '占问时运', content: '枯杨生稊，老夫得其女妻，无不利。' },
-      { category: '问商业', content: '有利，宜创新。' },
-      { category: '问家宅', content: '家运复兴。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '良缘，老少配。' },
-      { category: '问六甲', content: '生女。' }
+      { category: '占问战征', content: '有转败为胜之象。' },
+      { category: '问营商', content: '《兑》为阴，亦为金，《巽》为风，亦为木，定为金木生意。"枯杨生稊"，于种植林木，或贩运树木，皆"无不利"。' },
+      { category: '问功名', content: '就爻象看来，必待晚年，方可成名。' },
+      { category: '问家宅', content: '此宅昔年定多不利，系阳宅居于阴地；近来得阳九发动，必有枯树开花，此其兆也。利。' },
+      { category: '问婚姻', content: '主有老鳏重娶，得以生育，大利。' },
+      { category: '问疾病', content: '虽危得安。' },
+      { category: '问失物', content: '必得。' }
     ]
   },
   {
     hexagramId: 28,
     position: 3,
     judgments: [
-      { category: '占问时运', content: '栋桡，凶。' },
-      { category: '问商业', content: '根基不稳，凶。' },
-      { category: '问家宅', content: '宅运不佳，防倾覆。' },
-      { category: '问疾病', content: '症重，宜慎。' },
-      { category: '问婚嫁', content: '不利。' },
-      { category: '问六甲', content: '生女。' }
+      { category: '占问战征', content: '"栋"者一屋之主，即一军之主帅也；"挠"者，摧折也，栋而挠，是主帅受伤之象。弊在主帅过于刚猛，不听人言所致，故凶。' },
+      { category: '问营商', content: '商业必须得人为辅，方能成事，若自运自刃，非特经营不大，且恐致意外耗失。"栋挠"云者，有人财两失之虑，故凶。' },
+      { category: '问功名', content: '能任大任者，称栋梁之材，云"挠"，则栋非其栋矣，虽成终败，凶。' },
+      { category: '问家宅', content: '此宅不吉，栋折榱崩，不可居也，凶。' },
+      { category: '问婚嫁', content: '九三以阳居阳，孤阳无助，婚姻不成，成亦不吉。' },
+      { category: '问六甲', content: '生男，恐不能养。' }
     ]
   },
   {
     hexagramId: 28,
     position: 4,
     judgments: [
-      { category: '占问时运', content: '栋隆，吉，有它吝。' },
-      { category: '问商业', content: '有利，防小损。' },
-      { category: '问家宅', content: '家运亨通。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '可成。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问战征', content: '行军屯营，宜占高阜要地，下有所藉，斯营基巩固，可进可退，自不为敌所挠也，故吉。' },
+      { category: '问营商', content: '想必是材木生意，木料高大，足备巨室之用，若他项经营，恐未必佳。' },
+      { category: '问功名', content: '爻曰"栋隆"，必是大才，可当大任，斯足副"栋隆"之兆，其他小试，非其所长，有不屑为也。' },
+      { category: '问家宅', content: '此宅栋榱辉煌，门户宏阔，吉。' },
+      { category: '问疾病', content: '想是中胸有痞块高起，然无害。' }
     ]
   },
   {
     hexagramId: 28,
     position: 5,
     judgments: [
-      { category: '占问时运', content: '枯杨生华，老妇得其士夫，无咎无誉。' },
-      { category: '问商业', content: '平平，无大利。' },
-      { category: '问家宅', content: '宅运平平。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '可成，老少配。' },
-      { category: '问六甲', content: '生女。' }
+      { category: '占问战征', content: '行军占此，必军中主将偏神，位置颠倒，任用不当。一时虽获胜仗，未能持久。' },
+      { category: '问营商', content: '防经商者贪恋外遇，致摇丑声。' },
+      { category: '问家宅', content: '防国房不正，墙侧有茨。' },
+      { category: '问功名', content: '必主晚年获隽。' },
+      { category: '问婚嫁', content: '必年齿不齐，匹偶不正。' },
+      { category: '问六甲', content: '生女，不育。' }
     ]
   },
   {
     hexagramId: 28,
     position: 6,
     judgments: [
-      { category: '占问时运', content: '过涉灭顶，凶，无咎。' },
-      { category: '问商业', content: '冒险行事，防大损。' },
-      { category: '问家宅', content: '防有水灾。' },
-      { category: '问疾病', content: '症重，宜慎。' },
-      { category: '问婚嫁', content: '不利。' },
+      { category: '占问战征', content: '恐有主将阵亡之惨。' },
+      { category: '问功名', content: '有头悬梁、锥刺之苦志，宜其声名远达，有志竟成。' },
+      { category: '问营商', content: '运货出洋，最宜谨慎。' },
+      { category: '问疾病', content: '恐水气上冲，头面浮肿，凶。' },
+      { category: '问家宅', content: '恐有大水泛涨，墙倾屋倒之患。' },
       { category: '问六甲', content: '生女。' }
     ]
   },
@@ -2526,72 +2547,71 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 29,
     position: 1,
     judgments: [
-      { category: '占问时运', content: '习坎，入于坎窞，凶。' },
-      { category: '问商业', content: '陷入困境，凶。' },
-      { category: '问家宅', content: '宅运不佳，防陷阱。' },
-      { category: '问疾病', content: '症重，宜慎。' },
-      { category: '问婚嫁', content: '不利。' },
-      { category: '问六甲', content: '生女。' }
+      { category: '占问战征', content: '有设计埋伏，因之反坠敌计，凶道也。' },
+      { category: '问功名', content: '有侥幸求名，反致遭辱，是无益而有损也。' },
+      { category: '问营商', content: '因贩货失利，转运他处，货到，市面更小，不能脱售。' },
+      { category: '问疾病', content: '求医疗疾，医失其道，其病益危。' },
+      { category: '问婚姻', content: '恐堕骗局，必非明媒正娶也。' },
+      { category: '问六甲', content: '防生产有难。' }
     ]
   },
   {
     hexagramId: 29,
     position: 2,
     judgments: [
-      { category: '占问时运', content: '坎有险，求小得。' },
-      { category: '问商业', content: '小利可图，不宜大谋。' },
-      { category: '问家宅', content: '宅运平平。' },
-      { category: '问疾病', content: '症有险，宜慎治。' },
-      { category: '问婚嫁', content: '有阻。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问战征', content: '可暗通隧道，以袭敌营，虽未大捷，必有小胜。' },
+      { category: '问营商', content: '小利可谋。' },
+      { category: '问功名', content: '小试必利。' },
+      { category: '问家宅', content: '宅外恐有河岸崩颓，宜加修治。' },
+      { category: '问疾病', content: '必是疮疡等症，延医治之，当得小效，难期全愈。' },
+      { category: '问六甲', content: '得男。' }
     ]
   },
   {
     hexagramId: 29,
     position: 3,
     judgments: [
-      { category: '占问时运', content: '来之坎坎，险且枕，勿用。' },
-      { category: '问商业', content: '进退两难，宜守。' },
-      { category: '问家宅', content: '宅运多舛。' },
-      { category: '问疾病', content: '症重，宜静养。' },
-      { category: '问婚嫁', content: '不成。' },
-      { category: '问六甲', content: '生女。' }
+      { category: '占问战征', content: '象为营垒四面，皆临坎险，进退两难，宜枕戈暂息，以待应援。' },
+      { category: '问营商', content: '观爻象为海运生意；舟行且阻，宜入奥暂守。' },
+      { category: '问功名', content: '观象，是值万般困厄，为饿肌劳肤之时也，目下无功，晚成有望。' },
+      { category: '问家宅', content: '此宅水法错乱，杀气多凶，屋北有一《坎》宕，急宜填满。' },
+      { category: '问婚嫁', content: '《坎》为男，是为男家求婚也，又曰"勿用"，必不成也。' },
+      { category: '问六甲', content: '生男。' }
     ]
   },
   {
     hexagramId: 29,
     position: 4,
     judgments: [
-      { category: '占问时运', content: '樽酒簋贰，用缶，纳约自牖，终无咎。' },
-      { category: '问商业', content: '简约经营，终无咎。' },
-      { category: '问家宅', content: '宅运平稳。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '可成。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问战征', content: '行军以粮饷为重，所谓足兵，首在足食。"纳约自牖"云者，靡非纳食之地，犹言潜地运饷，以防敌兵劫夺也。' },
+      { category: '问营商', content: '《坎》为酒，想是造酒之业。' },
+      { category: '问功名', content: '想是春风得意，燕乐嘉宾，可喜可贺。' },
+      { category: '问疾病', content: '宜祷。' },
+      { category: '问婚姻', content: '吉。' }
     ]
   },
   {
     hexagramId: 29,
     position: 5,
     judgments: [
-      { category: '占问时运', content: '坎不盈，祗既平，无咎。' },
-      { category: '问商业', content: '平稳，无咎。' },
-      { category: '问家宅', content: '宅运渐亨。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '可成。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问战征', content: '为将之道，最忌恃功而骄，以致众心不平，取败之道也，虽孙吴复起，不能为功。' },
+      { category: '问营商', content: '不贪一时意外之利，必酌量物价之平，以计久远，是善贾者也。' },
+      { category: '问功名', content: '名位不大。' },
+      { category: '问时运', content: '谦受益，满招损，终身诵之可也。' },
+      { category: '问家宅', content: '宅外有小地，水流清浅，又有一平坡，风景颇好，无咎。' },
+      { category: '问婚姻', content: '两姓门户相当，吉。' }
     ]
   },
   {
     hexagramId: 29,
     position: 6,
     judgments: [
-      { category: '占问时运', content: '系用徽纆，置于丛棘，三岁不得，凶。' },
-      { category: '问商业', content: '困顿难出，凶。' },
-      { category: '问家宅', content: '宅运不佳，防官非。' },
-      { category: '问疾病', content: '症重，久病难愈。' },
-      { category: '问婚嫁', content: '不成。' },
-      { category: '问六甲', content: '生女。' }
+      { category: '占问战征', content: '有劳师远征，久役不归之虑。' },
+      { category: '问营商', content: '想是采办蚕丝生意，三年之后，方可获利。' },
+      { category: '问功名', content: '恐有意外之灾，不特功名不就，防有牢狱之罪，凶。' },
+      { category: '问婚姻', content: '红丝系足，婚姻有前定也，但良缘未到，须待三年后可就。' },
+      { category: '问六甲', content: '得子，须迟。' },
+      { category: '问家宅', content: '此宅不知缘何荒废，墙围遍生藤蔓，宜加修葺。前住者不利，后住者吉。' }
     ]
   },
   {
@@ -2611,11 +2631,10 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 30,
     position: 1,
     judgments: [
-      { category: '占问时运', content: '履错然，敬之，无咎。' },
-      { category: '问商业', content: '新业初立，宜敬慎。' },
-      { category: '问家宅', content: '宅运初亨。' },
-      { category: '问疾病', content: '宜慎调养。' },
-      { category: '问婚嫁', content: '可成。' },
+      { category: '占问战征', content: '初爻为始，是三军始行，旗鼓交错之时也。"敬"者，即所谓临事而惧之意。战，危事也，慎重持之，或可免咎也。或曰邪行谓错，宜从横路进兵。' },
+      { category: '问商业', content: '必是新立之业。初九爻辰在子，北方属水，卦位居南属火，想是南北生意。一时难许大利，要可无咎。' },
+      { category: '问功名', content: '《诗》云"他山之石，可以攻玉"，盖言得助而成也。' },
+      { category: '问家宅', content: '《履》卦云，"履道坦坦，幽人贞吉"，是宅必在大道之旁。吉。' },
       { category: '问六甲', content: '生女。' }
     ]
   },
@@ -2623,11 +2642,12 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 30,
     position: 2,
     judgments: [
-      { category: '占问时运', content: '黄离，元吉。' },
-      { category: '问商业', content: '大吉，有利。' },
-      { category: '问家宅', content: '家道大兴。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '良缘。' },
+      { category: '占问战征', content: '《离》二变《大有》，《大有》，《象传》曰"大车以载，积中不败也"。"大车"，谓兵车；黄，中之色也；"积中"者，谓中营军粮充实；"不败"者，谓兵士勇健，得以获胜也。故吉。' },
+      { category: '问营商', content: '《离》属南方之卦，经营利在南方；黄为土，土生木，又利在土木。' },
+      { category: '问功名', content: '《离》位在午，上值文昌，有文明之象，功名必显。' },
+      { category: '问家宅', content: '《离》为火，土色黄，火之子，喻言其家得有令子，能振起家声。吉。' },
+      { category: '问婚姻', content: '二爻以阴居阴，位得中正，主夫妇顺从，佳偶也。吉。' },
+      { category: '问疾病', content: '必是内火郁结中焦之症，宜凉解之。无咎。' },
       { category: '问六甲', content: '生女。' }
     ]
   },
@@ -2635,11 +2655,10 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 30,
     position: 3,
     judgments: [
-      { category: '占问时运', content: '日昃之离，不鼓缶而歌，则大耋之嗟，凶。' },
-      { category: '问商业', content: '日落西山，不宜经营。' },
-      { category: '问家宅', content: '宅运衰退。' },
-      { category: '问疾病', content: '症重，宜慎。' },
-      { category: '问婚嫁', content: '不利，难偕老。' },
+      { category: '占问战征', content: '"日昃"，日将夕也。军中长歌浩叹，皆失纪律，不吉之兆，尤防敌兵夜袭。' },
+      { category: '问营商', content: '《周礼》地官司市，"大市日昃而市"，谓大市交易繁多，至日昃始集市。爻曰"日昃之离"，是日昃后而散也。市区扰杂，或歌或嗟，哀乐无度，必伤正业，宜戒。' },
+      { category: '问功名', content: '恐老大无成，徒自悲耳。' },
+      { category: '问婚姻', content: '鼓缶而歌，难望偕老，凶。' },
       { category: '问六甲', content: '生女，难育。' }
     ]
   },
@@ -2647,35 +2666,33 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 30,
     position: 4,
     judgments: [
-      { category: '占问时运', content: '突如其来如，焚如，死如，弃如。' },
-      { category: '问商业', content: '有灾，宜避。' },
-      { category: '问家宅', content: '防火灾。' },
-      { category: '问疾病', content: '症重，危。' },
-      { category: '问婚嫁', content: '不利。' },
-      { category: '问六甲', content: '生女，不育。' }
+      { category: '占问战征', content: '有营垒被焚，枪炮暴烈之祸，来势汹涌，紧官慎防。' },
+      { category: '问营商', content: '有人财两亡之祸，宜藏身退避，或可免也。' },
+      { category: '问功名', content: '有唾手可得之势，但位名愈重，得祸尤烈，不如隐退。' },
+      { category: '问家宅', content: '旧说以"突"为不孝子，此家必生逆子。"焚"、"死"、"弃"，皆言逆子之罪也。' },
+      { category: '问婚姻', content: '四动体《艮》，《艮》为鬼冥门，又《离》互《兑》，《兑》为刑人，此婚大不吉利。' },
+      { category: '问六甲', content: '生女，必不育。' }
     ]
   },
   {
     hexagramId: 30,
     position: 5,
     judgments: [
-      { category: '占问时运', content: '出涕沱若，戚嗟若，吉。' },
-      { category: '问商业', content: '先苦后甜，吉。' },
-      { category: '问家宅', content: '家运先忧后喜。' },
-      { category: '问疾病', content: '可愈，防难产。' },
-      { category: '问婚嫁', content: '先号咷而后笑。' },
-      { category: '问六甲', content: '生女，防难产。' }
+      { category: '占问战征', content: '据爻辞"沱若""嗟若"，有临事而惧之意。战危事也，能惧则能谋，能谋则可以制胜矣，故吉。' },
+      { category: '问营商', content: '此经营必是王家商务公业，非下民私计也。故曰"离王公也"。其业亦必由辛苦艰难而成。' },
+      { category: '问功名', content: '位至宰辅，极贵极显，然一身忧劳倍甚，如武侯之鞠躬尽瘁，乃吉。' },
+      { category: '问婚姻', content: '此姻事极贵，然有先号咷而后笑之象。' },
+      { category: '问六甲', content: '生女，防难产，终吉。' }
     ]
   },
   {
     hexagramId: 30,
     position: 6,
     judgments: [
-      { category: '占问时运', content: '王用出征，有嘉折首，获匪其丑，无咎。' },
-      { category: '问商业', content: '有利，宜选取上品。' },
-      { category: '问家宅', content: '家运亨通。' },
-      { category: '问疾病', content: '不利，防夭折。' },
-      { category: '问婚嫁', content: '可成。' },
+      { category: '占问战征', content: '观爻辞已明示矣。王者之师，不妄杀人，斯道得焉矣。' },
+      { category: '问营商', content: '贩售货物，宜选取上等佳品，不取低劣，乃可获利。' },
+      { category: '问功名', content: '必膺首选，吉。' },
+      { category: '问疾病', content: '"折"，夭折也，不利。' },
       { category: '问六甲', content: '生女。' }
     ]
   },
@@ -3129,11 +3146,12 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 36,
     position: 1,
     judgments: [
-      { category: '占问时运', content: '明夷于飞，垂其翼。君子于行，三日不食。有攸往，主人有言。' },
-      { category: '问商业', content: '宜隐不宜显。' },
-      { category: '问家宅', content: '宅运不佳，宜避。' },
-      { category: '问疾病', content: '症重，宜慎。' },
-      { category: '问婚嫁', content: '不宜。' },
+      { category: '占问时运', content: '初运不佳，惟其善自保全，得以无害。' },
+      { category: '问战征', content: '为营中粮食已尽，且宜暂退。' },
+      { category: '问营商', content: '《明夷》者，恐资本有伤，运货远行，有中途受难之象，又恐主人啧有烦言也。' },
+      { category: '问功名', content: '于飞垂翼，明示以不能腾达之象。' },
+      { category: '问婚姻', content: '初爻与四相应，而反相害，婚姻不谐。' },
+      { category: '问家宅', content: '此宅必是租典，非己屋也，故有主人；"三日不食"，有破灶不炊之象，不利，宜迁。' },
       { category: '问六甲', content: '生女。' }
     ]
   },
@@ -3141,59 +3159,70 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 36,
     position: 2,
     judgments: [
-      { category: '占问时运', content: '明夷，夷于左股，用拯马壮，吉。' },
-      { category: '问商业', content: '有救，吉。' },
-      { category: '问家宅', content: '宅运有救。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '可成。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问时运', content: '目下运不甚佳，颇有伤残，幸得禄马相救，故吉。' },
+      { category: '问战征', content: '左营之军不利，幸马队得力，得以转败为胜。' },
+      { category: '问营商', content: '按策划不适时宜曰左计，知其营谋不合时，故有损失，幸得有马姓人出而调剂，则吉。' },
+      { category: '问功名', content: '凡官级以降曰左，似不利也；惟值午年，或交午运，则吉。' },
+      { category: '问疾病', content: '《离》二中虚，如陷进然，其人必陷入深坑；伤其左足，幸马力壮健，得一跃而出。' },
+      { category: '问家宅', content: '必在左边柱足损伤，宜急修治。' },
+      { category: '问婚姻', content: '《离》阴象，女子恐有足疾，不良于行，宜配午命人吉。' },
+      { category: '问六甲', content: '生女。' }
     ]
   },
   {
     hexagramId: 36,
     position: 3,
     judgments: [
-      { category: '占问时运', content: '明夷于南狩，得其大首，不可疾贞。' },
-      { category: '问商业', content: '南方有利。' },
-      { category: '问家宅', content: '宅运南方吉。' },
-      { category: '问疾病', content: '可愈，宜缓。' },
-      { category: '问婚嫁', content: '可成。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问时运', content: '大运不无破败，是宜退守；交冬令，从南出行，必得大利。' },
+      { category: '问战征', content: '卦曰《明夷》，明日进兵，必有伤败，宜潜兵从南而入。《离》上爻曰，"王用出征，有嘉折首"，即合此占。' },
+      { category: '问功名', content: '南方属文明，猎兽猎名，皆期其得。"大首"，魁首也，其必膺首选乎？故曰"志大得也"。吉。' },
+      { category: '问婚姻', content: '婚礼莫雁射雀，亦取从禽之象，"得其大首"者，谓得其嘉偶。吉。' },
+      { category: '问疾病', content: '当出避南方。吉。' },
+      { category: '问失物', content: '可就宅南寻之，必得。' },
+      { category: '问六甲', content: '生女。' },
+      { category: '问家宅', content: '此宅《离》位南向，"大首"者，一乡之大富家也。吉。' }
     ]
   },
   {
     hexagramId: 36,
     position: 4,
     judgments: [
-      { category: '占问时运', content: '入于左腹，获明夷之心，于出门庭。' },
-      { category: '问商业', content: '宜出门经营。' },
-      { category: '问家宅', content: '宜迁居。' },
-      { category: '问疾病', content: '症在腹部，宜慎。' },
-      { category: '问婚嫁', content: '宜出门求亲。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问时运', content: '爻象出明入暗，知为不利，不宜居家，还宜出门。' },
+      { category: '问战征', content: '可潜入敌之左营，探听密计，出告大营，可胜也。' },
+      { category: '问功名', content: '功名以高升为吉，"入于左腹"，《坤》为腹，是入于地也。不吉。' },
+      { category: '问营商', content: '释名，"腹"，复也，富也。入于腹，即入于富也；获心，即称心也；"于出门庭"，是出家经商之象。' },
+      { category: '问疾病', content: '是病在心腹，恐是内损之症，宜出门求医。' },
+      { category: '问家宅', content: '此宅明堂左首，路有阻碍，出入不便。' },
+      { category: '问婚姻', content: '女子腹已有孕，不利。' },
+      { category: '问六甲', content: '生女。' }
     ]
   },
   {
     hexagramId: 36,
     position: 5,
     judgments: [
-      { category: '占问时运', content: '箕子之明夷，利贞。' },
-      { category: '问商业', content: '守正则利。' },
-      { category: '问家宅', content: '宅运守正则吉。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '守正则吉。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问时运', content: '目下正当困厄，不失其正，久后必亨。' },
+      { category: '问战征', content: '主师不明，致有谋士逃亡之象。' },
+      { category: '问营商', content: '必历经艰苦，方可获利。' },
+      { category: '问功名', content: '时事日艰，不宜于进，只宜退守。' },
+      { category: '问家宅', content: '主亲族不和。' },
+      { category: '问疾病', content: '防有发狂之症。' },
+      { category: '问婚姻', content: '宜罢婚。' },
+      { category: '问讼事', content: '一时不直，久后自然明白。' },
+      { category: '问六甲', content: '生女。' }
     ]
   },
   {
     hexagramId: 36,
     position: 6,
     judgments: [
-      { category: '占问时运', content: '不明晦，初登于天，后入于地。' },
-      { category: '问商业', content: '先盛后衰。' },
-      { category: '问家宅', content: '宅运先亨后困。' },
-      { category: '问疾病', content: '症重，危。' },
-      { category: '问婚嫁', content: '不利。' },
+      { category: '占问时运', content: '初运虽好，后运不佳，万事宜作退一步想，方可无咎。' },
+      { category: '问功名', content: '宜晦藏遁迹，不宜自炫才华。' },
+      { category: '问营商', content: '货价初次太昂，落后太贱，显有天渊之隔，宜得其平。' },
+      { category: '问战征', content: '防攻山夺险，有坠入深渊之患。' },
+      { category: '问婚姻', content: '有先富后贫之嫌。' },
+      { category: '问家宅', content: '此宅面对高山，后临深渊，殊嫌地势低陷。' },
+      { category: '问疾病', content: '初患气冲，后又下泄，难治。' },
       { category: '问六甲', content: '生女。' }
     ]
   },
@@ -3214,23 +3243,27 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 37,
     position: 1,
     judgments: [
-      { category: '占问时运', content: '闲有家，悔亡。' },
-      { category: '问商业', content: '宜守不宜散。' },
-      { category: '问家宅', content: '家宅平安。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '可成。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问时运', content: '目下好运初来，正当自知检束，斯无灾悔。' },
+      { category: '问战征', content: '当行军之始，正宜整其步伐，严其号令，得以有胜无败。' },
+      { category: '问营商', content: '是初次贩运，宜恪守商规。' },
+      { category: '问功名', content: '是初次求名。宜遵公令，不得妄意干进。' },
+      { category: '问家宅', content: '此宅墙围坚固，门户肃睦，治家者有条有则，约束详明。至四年后，可致饶富。吉。' },
+      { category: '问疾病', content: '病是初起，宜自谨慎保养，必无灾害。初若不治，必致变症，则难治矣。' },
+      { category: '问婚姻', content: '当初订姻好，知是家风清白，闺门素谨，可成。' },
+      { category: '问讼事', content: '初讼罢之，则吉。' },
+      { category: '问六甲', content: '是初胎，生女。' }
     ]
   },
   {
     hexagramId: 37,
     position: 2,
     judgments: [
-      { category: '占问时运', content: '无攸遂，在中馈，贞吉。' },
-      { category: '问商业', content: '妇人经营吉。' },
-      { category: '问家宅', content: '妇人主家吉。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '妇人吉。' },
+      { category: '占问时运', content: '目下正当大运，但爻象重阴，只宜因人成事，不能独断独行。' },
+      { category: '问战征', content: '此是偏将，必非主师，或是后营，主管粮食军饷，最为紧要，谨防勿失。' },
+      { category: '问营商', content: '想是贩运粮食生意，吉。' },
+      { category: '问功名', content: '难以遂意。' },
+      { category: '问家宅', content: '此宅朝南，宅主必是妇人，家事不能专断，惟灶基最吉。' },
+      { category: '问疾病', content: '幸胃口强健，可以无害。' },
       { category: '问六甲', content: '生女。' }
     ]
   },
@@ -3238,48 +3271,56 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 37,
     position: 3,
     judgments: [
-      { category: '占问时运', content: '家人嗃嗃，悔厉吉。妇子嘻嘻，终吝。' },
-      { category: '问商业', content: '严则有成，宽则有失。' },
-      { category: '问家宅', content: '家规严则吉。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '严则有成。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问时运', content: '运限平平，终贵自勉，严谨刻苦，不自惮劳，当必获吉。若一味取乐，百事无成。' },
+      { category: '问战征', content: '号令严明，万军畏服，纵不免杀戮过甚之患，而所谓自得成功。' },
+      { category: '问营商', content: '想是外作商店，内作佳家，内外齐肃，家政严，店规谨，乃能获吉。否则，过和而流，将有名可问。' },
+      { category: '问功名', content: '爻象专在宜家，功名尚缓。' },
+      { category: '问家宅', content: '此宅家规严肃，吉。' },
+      { category: '问婚姻', content: '九三之应在上九，曰"有孚"，知两姓相从，吉。' },
+      { category: '问疾病', content: '九三属《离》为火，宜进凉剂，虽危得愈。' },
+      { category: '问失物', content: '宜严急查询，可得，若宽缓则失矣。' },
+      { category: '问六甲', content: '生女。' }
     ]
   },
   {
     hexagramId: 37,
     position: 4,
     judgments: [
-      { category: '占问时运', content: '富家，大吉。' },
-      { category: '问商业', content: '大吉，有利。' },
-      { category: '问家宅', content: '家道大兴。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '良缘。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问时运', content: '目下正当盛运，已富者克保其家，未富者即发其财，大吉之象。' },
+      { category: '问战征', content: '国富兵强，粮饷充足，可进可退，吉无不利。' },
+      { category: '问营商', content: '"利市三倍"，立致富饶，吉可知也。' },
+      { category: '问功名', content: '官与财多相反，必须破财，乃可成名。' },
+      { category: '问家宅', content: '必是巨室阀阅之家，大吉。' },
+      { category: '问讼事', content: '财可通神，事无不了。' },
+      { category: '问疾病', content: '必是身体肥胖，膏粱过度所致，药之即愈。' },
+      { category: '问六甲', content: '生女。' }
     ]
   },
   {
     hexagramId: 37,
     position: 5,
     judgments: [
-      { category: '占问时运', content: '王假有家，勿恤，吉。' },
-      { category: '问商业', content: '大吉，有利。' },
-      { category: '问家宅', content: '家道大兴。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '良缘。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问时运', content: '运来福至，人心自然感通，何忧不吉？' },
+      { category: '问战征', content: '王者之师，所向无敌。吉。' },
+      { category: '问营商', content: '想此商业，必是奉公谋办，或是贡献品物，为王家之业也，吉。' },
+      { category: '问功名', content: '恰如渭水付岩，有梦卜感通之象，吉。' },
+      { category: '问家宅', content: '此宅想是公卿巨邸，吉。' },
+      { category: '问疾病', content: '人身以心为君，五居《巽》木，必是肝木太强生风，心火生热。药宜熄火定风，使心气开通，可勿忧也。吉。' },
+      { category: '问婚姻', content: '有选入宫闱之象。' },
+      { category: '问六甲', content: '生女。' }
     ]
   },
   {
     hexagramId: 37,
     position: 6,
     judgments: [
-      { category: '占问时运', content: '有孚威如，终吉。' },
-      { category: '问商业', content: '诚信有威，吉。' },
-      { category: '问家宅', content: '家道有威。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '良缘。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问时运', content: '得人信服，得人敬畏，事无不成，往无不利，可行于近，亦可行于远，万事皆吉。十年好运，过此而终。' },
+      { category: '问战征', content: '行车之道，有信则人不我欺，有威则人不我狎，赏罚无私，号令必行，王者之师也，故吉。' },
+      { category: '问营商', content: '有信则万金可托，有威则百务皆修，商道之正也。' },
+      { category: '问功名', content: '上爻处极位之地，必是身居上位，信义早孚，威望素著之大人也。' },
+      { category: '问家宅', content: '此宅地位必高，为一乡之望也。吉。' },
+      { category: '问婚姻', content: '两姓允从，吉。' },
+      { category: '问六甲', content: '生女。' }
     ]
   },
   {
@@ -3301,72 +3342,86 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 38,
     position: 1,
     judgments: [
-      { category: '占问时运', content: '悔亡，丧马勿逐，自复。见恶人，无咎。' },
-      { category: '问商业', content: '失物自回，无咎。' },
-      { category: '问家宅', content: '宅运平稳。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '可成。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问时运', content: '好运初来，灾悔已退，虽有丧失，不必计虑，即有恶人来侵，不必拒绝，自然无咎。' },
+      { category: '问战征', content: '初次开战，虽有小败，后必大胜，强敌亦不能害我也。无咎。' },
+      { category: '问营商', content: '新作贸易，失而必复，无须忧虑也。来者不拒，无须计较也。目下未见尽利，后必大亨。' },
+      { category: '问功名', content: '现下虽无灾悔，未得成名，必待明年，至二爻得其巷遇，斯获显达。' },
+      { category: '问家宅', content: '阉宅平顺，无悔，无咎。' },
+      { category: '问失物', content: '不必寻觅，自得。' },
+      { category: '问婚姻', content: '现下未成，待到六月，或到六年，必就，吉。在上九"非寇，婚媾"之辞。' },
+      { category: '问讼事', content: '所讼必直，无咎。' },
+      { category: '问六甲', content: '生女。' }
     ]
   },
   {
     hexagramId: 38,
     position: 2,
     judgments: [
-      { category: '占问时运', content: '遇主于巷，无咎。' },
-      { category: '问商业', content: '有贵人助。' },
-      { category: '问家宅', content: '宅运有贵人。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '有贵人助。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问时运', content: '卦值乖《睽》，运本不佳，近始得有绝好际遇，往必有庆。' },
+      { category: '问战征', content: '二五相敌，内为我兵，五为敌兵，曲巷相遇，白刃相接，此战未分胜负。' },
+      { category: '问营商', content: '巷字从共，必是合伙共谋之业，当有一财主相遇，共为经营之象。' },
+      { category: '问功名', content: '正是风云际遇之时。' },
+      { category: '问家宅', content: '此宅在曲巷之内，近有贵人来会，相晤为欢，大庆。' },
+      { category: '问疾病', content: '得遇良医，无咎。' },
+      { category: '问婚姻', content: '《诗》所咏"邂逅相遇，适我愿兮"，此男妇私情，非正配也。' },
+      { category: '问六甲', content: '生女。' }
     ]
   },
   {
     hexagramId: 38,
     position: 3,
     judgments: [
-      { category: '占问时运', content: '见舆曳，其牛掣，其人天且劓。无初有终。' },
-      { category: '问商业', content: '初阻后通。' },
-      { category: '问家宅', content: '宅运初阻后通。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '初阻后成。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问时运', content: '运不得当，恐有刑伤之灾；三年后，得有好运。' },
+      { category: '问战征', content: '车脱马逸，兵败将亡，不能前进，必待应军得力，得以始败终胜。' },
+      { category: '问营商', content: '与人不合，非特不能获利，防有刑狱之厄，待后可成。' },
+      { category: '问功名', content: '左掣右肘，动辄得咎，安能成名？晚运则佳。' },
+      { category: '问婚姻', content: '初因男家疑忌，未免受辱，终得疑释完婚。' },
+      { category: '问家宅', content: '此宅地位不当，前后左右，皆有牵制，宅中之人，时有头面伤残之祸，以朝山向午，《离》火方也。' },
+      { category: '问疾病', content: '必是面上有疮，久后自愈。' },
+      { category: '问讼事', content: '不免刑厄，终则自解。' },
+      { category: '问失物', content: '后可寻得。' },
+      { category: '问六甲', content: '生女，防面有伤痕。' }
     ]
   },
   {
     hexagramId: 38,
     position: 4,
     judgments: [
-      { category: '占问时运', content: '睽孤，遇元夫，交孚，厉无咎。' },
-      { category: '问商业', content: '有伙伴相助。' },
-      { category: '问家宅', content: '宅运有助。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '有伙伴相助。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问时运', content: '性情孤介，不合时宜，幸得同志，差足免咎。' },
+      { category: '问战征', content: '孤军深入，几致危殆，幸而获救，可以无咎。' },
+      { category: '问营商', content: '孤客远行，货物不合销路，进退两难，得遇故乡旧友，方可脱售，平安无咎。' },
+      { category: '问功名', content: '命运孤寒，难望显达，无咎而已。' },
+      { category: '问家宅', content: '宅在孤村僻壤，惟有樵夫野老来往而已。' },
+      { category: '问疾病', content: '病是目疾，得遇良医，可以无咎。' },
+      { category: '问六甲', content: '生女。' }
     ]
   },
   {
     hexagramId: 38,
     position: 5,
     judgments: [
-      { category: '占问时运', content: '悔亡，厥宗噬肤，往何咎。' },
-      { category: '问商业', content: '有宗族相助。' },
-      { category: '问家宅', content: '宅运有宗族助。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '有宗族助。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问时运', content: '劣运已退，得与同宗共事，可以无咎。' },
+      { category: '问战征', content: '可勇跃前往，无咎。' },
+      { category: '问营商', content: '防合伙者有侵食之患，然径行而往，终得有利。' },
+      { category: '问功名', content: '得有同宗相助，乃能获庆。' },
+      { category: '问家宅', content: '此宅是宗族旧屋，居住有庆。' },
+      { category: '问疾病', content: '是肌肤之疾，易治也。' },
+      { category: '问婚姻', content: '二与五为正应，是亲戚旧家，成则有庆。' },
+      { category: '问六甲', content: '生女。' }
     ]
   },
   {
     hexagramId: 38,
     position: 6,
     judgments: [
-      { category: '占问时运', content: '睽孤，见豕负涂，载鬼一车，先张之弧，后说之弧，匪寇婚媾，往遇雨则吉。' },
-      { category: '问商业', content: '先疑后信，吉。' },
-      { category: '问家宅', content: '宅运先疑后信。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '先疑后成。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问时运', content: '正当交运脱运之时，切宜息心定虑，毋动妄想，妄想一端，幻形百端，防生疑病。' },
+      { category: '问战征', content: '营位太高，军力太孤，防有疑兵来袭。' },
+      { category: '问营商', content: '目下货价，变迁百出，上落不一；时当盛夏，来客稀少，必待秋雨一通，可以获利。' },
+      { category: '问功名', content: '现在牛怪蛇神，变动不一，待十年后，出《蹇》入《解》，可许发解。' },
+      { category: '问婚姻', content: '前因疑忌不睦，后得完好，吉。' },
+      { category: '问家宅', content: '此宅有变，防有鬼祟，遇婚嫁喜事，可以解释。' },
+      { category: '问疾病', content: '杯弓蛇影，因疑成病，得破其疑，病自霍然。' },
+      { category: '问六甲', content: '生女。' }
     ]
   },
   {
@@ -3390,11 +3445,14 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 39,
     position: 1,
     judgments: [
-      { category: '占问时运', content: '往蹇，来誉。' },
-      { category: '问商业', content: '不宜往，宜来。' },
-      { category: '问家宅', content: '宅运不宜迁。' },
-      { category: '问疾病', content: '宜静养。' },
-      { category: '问婚嫁', content: '不宜往求。' },
+      { category: '占问时运', content: '好运未来，宜谨守以待。' },
+      { category: '问战征', content: '有险在前，未可进往，宜暂退守。' },
+      { category: '问营商', content: '售卖之处，适有危，不可贩货前往，须暂时待价。' },
+      { category: '问功名', content: '从军效力，皆冒险犯难，获邀奖赏，故曰"来誉"。' },
+      { category: '问家宅', content: '地位险阻，迁居不利。' },
+      { category: '问疾病', content: '在初起，不必急往求医，宜退而自养。' },
+      { category: '问婚姻', content: '不必急就，还宜待。吉。' },
+      { category: '问失物', content: '缓之可得。' },
       { category: '问六甲', content: '生男。' }
     ]
   },
@@ -3402,11 +3460,15 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 39,
     position: 2,
     judgments: [
-      { category: '占问时运', content: '王臣蹇蹇，匪躬之故。' },
-      { category: '问商业', content: '为人经营，劳苦。' },
-      { category: '问家宅', content: '宅运劳苦。' },
-      { category: '问疾病', content: '劳苦致病。' },
-      { category: '问婚嫁', content: '劳苦。' },
+      { category: '占问时运', content: '目下气运尴尬，险难重重，主一身劳碌。' },
+      { category: '问战征', content: '防军入险地，身被重围，有虎士元落凤坡之象。' },
+      { category: '问营商', content: '为内地运货，中途被水，有人财两失之患。' },
+      { category: '问功名', content: '为急公求名，名成而身莫保，邀身后之荣。' },
+      { category: '问家宅', content: '此宅在艮山之中，向朝东北，险既重，不利。' },
+      { category: '问婚姻', content: '二应五，主结贵亲；防后日夫君有难，身命难保。' },
+      { category: '问讼事', content: '凶。' },
+      { category: '问行人', content: '凶。' },
+      { category: '问失物', content: '终不可得。' },
       { category: '问六甲', content: '生男。' }
     ]
   },
@@ -3414,11 +3476,14 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 39,
     position: 3,
     judgments: [
-      { category: '占问时运', content: '往蹇，来反。' },
-      { category: '问商业', content: '不宜往，宜返。' },
-      { category: '问家宅', content: '宅运不宜迁。' },
-      { category: '问疾病', content: '宜返归调养。' },
-      { category: '问婚嫁', content: '不宜往求。' },
+      { category: '占问时运', content: '运值多难，前进不利，不如退守。' },
+      { category: '问战征', content: '有军出旋师之象。' },
+      { category: '问营商', content: '有去而不来，贩货复回，转销内地之象。' },
+      { category: '问功名', content: '为出使在外，改为内用。' },
+      { category: '问家宅', content: '此宅后靠山，前临水，初欲他迁，后复归来，得以团聚为喜。' },
+      { category: '问婚姻', content: '前欲他适，后得归来，可喜。' },
+      { category: '问行人', content: '即日来，喜。' },
+      { category: '问失物', content: '失而复得。' },
       { category: '问六甲', content: '生男。' }
     ]
   },
@@ -3426,23 +3491,28 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 39,
     position: 4,
     judgments: [
-      { category: '占问时运', content: '往蹇，来连。' },
-      { category: '问商业', content: '不宜独往，宜连合。' },
-      { category: '问家宅', content: '宅运宜连合。' },
-      { category: '问疾病', content: '宜连医。' },
-      { category: '问婚嫁', content: '宜连媒。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问时运', content: '运多蹇险，以其能联合众心，得以济险。' },
+      { category: '问战征', content: '四爻阴柔，可知军力单薄，以其能与众军同心同德，联络一气，乃可出险。' },
+      { category: '问功名', content: '"来连"者，有连升之象。' },
+      { category: '问营商', content: '"来连"者，谓先后商客，皆相连而来；曰"当位实也"，"实"，充实，谓得赢满也。' },
+      { category: '问家宅', content: '此宅必与邻屋比连，地位相当，家道殷实。' },
+      { category: '问婚姻', content: '必是老亲结亲，重联订好，吉。' },
+      { category: '问疾病', content: '此病必连绵已久，一时不愈。' },
+      { category: '问讼事', content: '迟久可了。' },
+      { category: '问行人', content: '流连在外，一时不归。' },
+      { category: '问六甲', content: '生男，想是孪胎。' }
     ]
   },
   {
     hexagramId: 39,
     position: 5,
     judgments: [
-      { category: '占问时运', content: '大蹇，朋来。' },
-      { category: '问商业', content: '有朋友相助。' },
-      { category: '问家宅', content: '宅运有朋友助。' },
-      { category: '问疾病', content: '有良医。' },
-      { category: '问婚嫁', content: '有朋友助。' },
+      { category: '占问时运', content: '厄运将退，渐得化危为安。' },
+      { category: '问战征', content: '前既被围，今幸得救兵齐来，得以一战出围。' },
+      { category: '问功名', content: '位近至尊，足以匡济，大荣，吉。' },
+      { category: '问营商', content: '众货辐辏，一时难以脱售。' },
+      { category: '问家宅', content: '地近禁卫，当冲击疲难之区，车马纷逐之会，不宜民居，可改作会馆议院。' },
+      { category: '问疾病', content: '此是危难大症，宜集众医会治，方可望愈。' },
       { category: '问六甲', content: '生男。' }
     ]
   },
@@ -3450,11 +3520,13 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 39,
     position: 6,
     judgments: [
-      { category: '占问时运', content: '往蹇，来硕，吉。利见大人。' },
-      { category: '问商业', content: '不宜往，宜来，吉。' },
-      { category: '问家宅', content: '宅运有贵人助。' },
-      { category: '问疾病', content: '有良医。' },
-      { category: '问婚嫁', content: '有贵人助。' },
+      { category: '占问时运', content: '现下大难已退，大运将来，可以出面求仕。' },
+      { category: '问战征', content: '大兵已集，可以一战，以出重围。' },
+      { category: '问营商', content: '众商咸来，货价大涨，即此脱售可复本，亦可获利。' },
+      { category: '问功名', content: '文名大振，可以"利见大人"。' },
+      { category: '问家宅', content: '此宅地位高大，灾煞已退，吉曜照临，且得贵人扶助。' },
+      { category: '问婚姻', content: '主贵。' },
+      { category: '问讼事', content: '须从大审院判结。' },
       { category: '问六甲', content: '生男。' }
     ]
   },
@@ -3477,23 +3549,25 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 40,
     position: 1,
     judgments: [
-      { category: '占问时运', content: '无咎。' },
-      { category: '问商业', content: '无咎。' },
-      { category: '问家宅', content: '宅运平安。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '可成。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问时运', content: '困难初解，安时守分，自得无咎。' },
+      { category: '问战征', content: '乍脱重围，宜自蓄锐养精，不可妄动，得保无咎。' },
+      { category: '问营商', content: '不致耗失，亦为幸矣。' },
+      { category: '问功名', content: '目下只可守旧而已。' },
+      { category: '问家宅', content: '平安无害。' },
+      { category: '问讼事', content: '宜和。' }
     ]
   },
   {
     hexagramId: 40,
     position: 2,
     judgments: [
-      { category: '占问时运', content: '田获三狐，得黄矢，贞吉。' },
-      { category: '问商业', content: '有获，吉。' },
-      { category: '问家宅', content: '宅运有获。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '有获。' },
+      { category: '占问时运', content: '去邪归正，自得安吉。' },
+      { category: '问战征', content: '"田"者猎兽，犹战之猎敌也。获狐者，犹获敌之渠魁也。得矢者，犹得敌之兵器也。故"贞吉"。' },
+      { category: '问营商', content: '"田"者在猎兽，商者在猎利，"三"者多数，"黄"者黄金。必获厚利，吉。' },
+      { category: '问功名', content: '曰"获"，曰"得"，功名可望，吉。' },
+      { category: '问家宅', content: '此宅防有狐祟，须猎获之，乃吉。' },
+      { category: '问婚姻', content: '此必先有小妾，而后纳正室也。黄者正色，为正配，吉。' },
+      { category: '问疾病', content: '防是狐媚邪病，宜张弧矢以驱之，吉。' },
       { category: '问六甲', content: '生男。' }
     ]
   },
@@ -3501,23 +3575,29 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 40,
     position: 3,
     judgments: [
-      { category: '占问时运', content: '负且乘，致寇至，贞吝。' },
-      { category: '问商业', content: '招盗，宜慎。' },
-      { category: '问家宅', content: '宅运防盗。' },
-      { category: '问疾病', content: '症重，宜慎。' },
-      { category: '问婚嫁', content: '不宜。' },
-      { category: '问六甲', content: '生女。' }
+      { category: '占问时运', content: '运非不佳，但因素行不端，为人鄙笑。' },
+      { category: '问战征', content: '战隙自我而开，以致群盗纷起，一时难平。' },
+      { category: '问营商', content: '防有盗劫之患。' },
+      { category: '问功名', content: '沐猴而冠，其能久乎？' },
+      { category: '问家宅', content: '门户不自谨慎，或用人不当，致招窃盗。' },
+      { category: '问婚姻', content: '两姓均非端正之家，是富而不仁者也，"可丑"。' },
+      { category: '问讼事', content: '两造理皆不直。' },
+      { category: '问行人', content: '满载而归，但来路不正。' },
+      { category: '问失物', content: '已被窃负盗去，不得。' },
+      { category: '问六甲', content: '生男。' }
     ]
   },
   {
     hexagramId: 40,
     position: 4,
     judgments: [
-      { category: '占问时运', content: '解而拇，朋至斯孚。' },
-      { category: '问商业', content: '有朋友相助。' },
-      { category: '问家宅', content: '宅运有朋友助。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '有朋友助。' },
+      { category: '占问时运', content: '行年已当强仕，但行运不当，全在因人成事。' },
+      { category: '问战征', content: '防炮弹伤足，幸救兵得力，可以解围。' },
+      { category: '问营商', content: '所获甚微，惟众心交孚，一二年后，可望厚利。' },
+      { category: '问功名', content: '拇为足指，卑下已极，至五爻曰"君子维有解"必待下科，可望登榜。' },
+      { category: '问家宅', content: '此宅地低下，不得其当，只可作行栈店屋。' },
+      { category: '问婚姻', content: '得有力媒人说合，方可成事。' },
+      { category: '问讼事', content: '有朋友出，交相解劝，得可息讼。' },
       { category: '问六甲', content: '生男。' }
     ]
   },
@@ -3525,11 +3605,15 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 40,
     position: 5,
     judgments: [
-      { category: '占问时运', content: '君子维有解，吉。有孚于小人。' },
-      { category: '问商业', content: '君子经营吉。' },
-      { category: '问家宅', content: '宅运君子吉。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '君子吉。' },
+      { category: '占问时运', content: '正运亨通，群邪悉退。' },
+      { category: '问战征', content: '不戮一人，不加一矢，外夷来服。' },
+      { category: '问功名', content: '利君子，不利小人。' },
+      { category: '问营商', content: '不劳苦计营谋，自然获利。' },
+      { category: '问家宅', content: '此宅福曜照临，邪魔远避。' },
+      { category: '问婚姻', content: '吉。' },
+      { category: '问行人', content: '即归。' },
+      { category: '问疾病', content: '外邪解散，正气来复，吉。' },
+      { category: '问讼事', content: '理直者胜，理曲者服，即可罢讼。' },
       { category: '问六甲', content: '生男。' }
     ]
   },
@@ -3537,11 +3621,13 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 40,
     position: 6,
     judgments: [
-      { category: '占问时运', content: '公用射隼于高墉之上，获之，无不利。' },
-      { category: '问商业', content: '有获，大吉。' },
-      { category: '问家宅', content: '宅运有获。' },
-      { category: '问疾病', content: '可愈。' },
-      { category: '问婚嫁', content: '有获。' },
+      { category: '占问时运', content: '运途吉顺，出外或遇小寇，宜急防之。' },
+      { category: '问战征', content: '防有敌兵劫掠城外，宜高阜伏矢以射之，必有获也。' },
+      { category: '问营商', content: '运货出外，防有盗劫，宜严备御，非特无失，且可以获盗粮也，故曰"无不利"。' },
+      { category: '问功名', content: '爻称公，必已贵显也，当立功于外。' },
+      { category: '问家宅', content: '墉墙宜高，可备外窃。' },
+      { category: '问婚姻', content: '《诗》云"弋凫与雁"，有射之象，吉。' },
+      { category: '问讼事', content: '悖逆自解，利。' },
       { category: '问六甲', content: '生男。' }
     ]
   },
