@@ -1,5 +1,5 @@
 import { getAllUsers, getHistory, deleteHistoryItem, addNote, editNote, deleteNote } from '../utils/StorageUtils';
-import { DivinationResult, FilterItem, NoteItem } from '../model/DivinationModel';
+import { DivinationResult, FilterItem, NoteItem, MultipleJudgment } from '../model/DivinationModel';
 import { promptAction } from '@kit.ArkUI';
 import { pasteboard } from '@kit.BasicServicesKit';
 import { getTrigramByXianTianNumber } from '../data/TrigramsData';
@@ -780,11 +780,24 @@ export struct HistoryPage {
                       .fontSize(12)
                       .fontColor('#B94A48')
                       .fontWeight(FontWeight.Bold)
-                    ForEach(this.detailItem.movingLine.multipleJudgments, (mj: string) => {
-                      Text(mj)
-                        .fontSize(12)
-                        .fontColor('#5C4A32')
-                        .margin({ top: 4 })
+                    ForEach(this.detailItem.movingLine.multipleJudgments, (mj: MultipleJudgment) => {
+                      Column() {
+                        Text(mj.category)
+                          .fontSize(11)
+                          .fontColor('#8B7355')
+                          .fontWeight(FontWeight.Bold)
+                        Text(mj.content)
+                          .fontSize(12)
+                          .fontColor('#5C4A32')
+                          .margin({ top: 2 })
+                          .lineHeight(18)
+                      }
+                      .width('100%')
+                      .margin({ top: 8 })
+                      .padding(8)
+                      .backgroundColor('#FFF9F0')
+                      .borderRadius(6)
+                      .alignItems(HorizontalAlign.Start)
                     })
                   }
                   .width('100%')
@@ -818,6 +831,132 @@ export struct HistoryPage {
                         .onClick(() => {
                           this.sheetTitle = '📜 高岛活断实例';
                           this.sheetContent = this.detailItem!.movingLine!.takashiCase!;
+                          this.showContentSheet = true;
+                        })
+                    }
+                    .margin({ top: 4 })
+                    .width('100%')
+                    .justifyContent(FlexAlign.End)
+                  }
+                  .width('100%')
+                  .padding(12)
+                  .backgroundColor('#FFFEF9')
+                  .borderRadius(8)
+                  .margin({ top: 8 })
+                  .alignItems(HorizontalAlign.Start)
+                }
+              }
+              .width('100%')
+              .padding(12)
+              .backgroundColor('#F5F1E8')
+              .borderRadius(8)
+              .margin({ top: 12 })
+              .alignItems(HorizontalAlign.Start)
+            }
+
+            if (this.detailItem.changedHexagram) {
+              Column() {
+                Text('🔄 之卦（变卦）详解')
+                  .fontSize(14)
+                  .fontWeight(FontWeight.Bold)
+                  .fontColor('#2C2416')
+                  .margin({ bottom: 8 })
+
+                if (this.detailItem.changedHexagram.judgment) {
+                  Column() {
+                    Text('📖 之卦卦辞')
+                      .fontSize(12)
+                      .fontColor('#8B7355')
+                      .fontWeight(FontWeight.Bold)
+                    Text(this.detailItem.changedHexagram.judgment)
+                      .fontSize(14)
+                      .fontColor('#5C4A32')
+                      .margin({ top: 4 })
+                  }
+                  .width('100%')
+                  .padding(12)
+                  .backgroundColor('#F5F1E8')
+                  .borderRadius(8)
+                  .alignItems(HorizontalAlign.Start)
+                }
+
+                if (this.detailItem.changedHexagram.interpretation) {
+                  Column() {
+                    Text('✨ 之卦解释')
+                      .fontSize(14)
+                      .fontWeight(FontWeight.Bold)
+                      .fontColor('#2C2416')
+                      .margin({ bottom: 8 })
+
+                    this.HistInterpretationItem('总述', this.detailItem.changedHexagram.interpretation.summary)
+                    this.HistInterpretationItem('💼 事业', this.detailItem.changedHexagram.interpretation.career)
+                    this.HistInterpretationItem('💕 感情', this.detailItem.changedHexagram.interpretation.relationship)
+                    this.HistInterpretationItem('💪 健康', this.detailItem.changedHexagram.interpretation.health)
+                    this.HistInterpretationItem('💰 财运', this.detailItem.changedHexagram.interpretation.wealth)
+                  }
+                  .width('100%')
+                  .margin({ top: 12 })
+                  .alignItems(HorizontalAlign.Start)
+                }
+
+                if (this.detailItem.changedHexagram.multipleJudgments && this.detailItem.changedHexagram.multipleJudgments.length > 0) {
+                  Column() {
+                    Text('📜 之卦一辞多断')
+                      .fontSize(14)
+                      .fontColor('#B94A48')
+                      .fontWeight(FontWeight.Bold)
+                      .margin({ bottom: 8 })
+                    ForEach(this.detailItem.changedHexagram.multipleJudgments, (mj: MultipleJudgment) => {
+                      Column() {
+                        Text(mj.category)
+                          .fontSize(11)
+                          .fontColor('#8B7355')
+                          .fontWeight(FontWeight.Bold)
+                        Text(mj.content)
+                          .fontSize(12)
+                          .fontColor('#5C4A32')
+                          .margin({ top: 2 })
+                          .lineHeight(18)
+                      }
+                      .width('100%')
+                      .margin({ top: 8 })
+                      .padding(8)
+                      .backgroundColor('#FFF9F0')
+                      .borderRadius(6)
+                      .alignItems(HorizontalAlign.Start)
+                    })
+                  }
+                  .width('100%')
+                  .padding(12)
+                  .backgroundColor('#FFFEF9')
+                  .borderRadius(8)
+                  .margin({ top: 12 })
+                  .alignItems(HorizontalAlign.Start)
+                }
+
+                if (this.detailItem.changedHexagram.takashiCase) {
+                  Column() {
+                    Text('📜 之卦高岛活断')
+                      .fontSize(14)
+                      .fontColor('#B94A48')
+                      .fontWeight(FontWeight.Bold)
+                      .margin({ bottom: 8 })
+                    Text(this.detailItem.changedHexagram.takashiCase)
+                      .fontSize(12)
+                      .fontColor('#5C4A32')
+                      .lineHeight(18)
+                      .maxLines(2)
+                      .textOverflow({ overflow: TextOverflow.Ellipsis })
+                    Row() {
+                      Button('查看全部 ›')
+                        .fontSize(12)
+                        .fontColor('#B94A48')
+                        .backgroundColor(Color.Transparent)
+                        .height(24)
+                        .padding({ left: 8, right: 8 })
+                        .onClick(() => {
+                          this.sheetTitle = '📜 之卦高岛活断';
+                          this.sheetContent = this.detailItem!.changedHexagram!.takashiCase!;
                           this.showContentSheet = true;
                         })
                     }

@@ -97,6 +97,9 @@ export interface ChangedHexagram {
   upperTrigramInfo?: TrigramInfo;
   lowerTrigramInfo?: TrigramInfo;
   finalInterpretation?: string;
+  classicComment?: string;
+  multipleJudgments?: MultipleJudgment[];
+  takashiCase?: string;
 }
 
 // 终卦解读
@@ -206,4 +209,69 @@ export interface ExportData {
   version: string;
   lastUpdated: string;
   users: Record<string, DivinationResult[]>;
+}
+
+// 简化的卦象引用(用于存储优化)
+export interface HexagramReference {
+  id: number;
+  name: string;
+  symbol: string;
+  upperTrigram: string;
+  lowerTrigram: string;
+  upperTrigramInfo?: TrigramInfo;
+  lowerTrigramInfo?: TrigramInfo;
+}
+
+// 简化的动爻引用
+export interface MovingLineReference {
+  position: number;
+  name: string;
+  text: string;
+  interpretation: string;
+  positionMeaning?: string;
+  changeMeaning?: string;
+}
+
+// 简化的变卦引用
+export interface ChangedHexagramReference {
+  id?: number;
+  name: string;
+  symbol: string;
+  upperTrigram?: string;
+  lowerTrigram?: string;
+}
+
+// 轻量级占卜结果(用于存储)
+export interface LightweightDivinationResult {
+  id: string;
+  question: string;
+  timestamp: string;
+  method?: string;
+  input?: YarrowInput;
+  hexagramRef?: HexagramReference;
+  movingLineRef?: MovingLineReference;
+  changedHexagramRef?: ChangedHexagramReference;
+  finalReading?: FinalReading;
+  comment?: string;
+  commentUpdatedAt?: string;
+  notes?: NoteItem[];
+}
+
+// 导入记录格式(支持新旧格式)
+export interface ImportedRecord {
+  id: string;
+  question: string;
+  timestamp: string;
+  method?: string;
+  input?: YarrowInput;
+  hexagramRef?: HexagramReference;
+  movingLineRef?: MovingLineReference;
+  changedHexagramRef?: ChangedHexagramReference;
+  finalReading?: FinalReading;
+  comment?: string;
+  commentUpdatedAt?: string;
+  notes?: NoteItem[];
+  hexagram?: HexagramDisplay;
+  movingLine?: MovingLineInfo;
+  changedHexagram?: ChangedHexagram;
 }

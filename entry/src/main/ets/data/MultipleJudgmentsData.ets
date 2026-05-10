@@ -3657,6 +3657,7 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
       { category: '问婚姻', content: '即日迎娶，两姓好合。' },
       { category: '问家宅', content: '须速他迁，吉。' },
       { category: '问讼事', content: '即速了结罢讼。' },
+      { category: '问失物', content: '速寻可得。' },
       { category: '问六甲', content: '生女。' }
     ]
   },
@@ -3670,6 +3671,8 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
       { category: '问功名', content: '无荣无辱，青毡守旧。' },
       { category: '问婚姻', content: '两姓门户相当，吉。' },
       { category: '问家宅', content: '地位得中，不必添改，大利。' },
+      { category: '问讼事', content: '平和。' },
+      { category: '问失物', content: '原物无失。' },
       { category: '问六甲', content: '生女。' }
     ]
   },
@@ -3682,6 +3685,8 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
       { category: '问营商', content: '商业宜于一人独做，否则二人同办，再多则必有损。' },
       { category: '问功名', content: '须一人独往，必得成名。' },
       { category: '问婚姻', content: '得友，即得偶也，吉。' },
+      { category: '问家宅', content: '宅在兑方，宅中丁口，每家只有两丁可断。' },
+      { category: '问讼事', content: '两造成讼，为中有一人唆弄所致，去此一人，则讼了矣。' },
       { category: '问六甲', content: '生女。' }
     ]
   },
@@ -3690,10 +3695,13 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     position: 4,
     judgments: [
       { category: '占问时运', content: '目下虽有小灾，得救即疗，可以转忧为喜。' },
-      { category: '问营商', content: '货宜减办，使之即往贩售，获利可喜。' },
       { category: '问战征', content: '未免遭伤，医治可疗，无咎。' },
-      { category: '问家宅', content: '此宅阴气过盛，宅眷致多疾病，祈祷可疗，无咎。' },
+      { category: '问营商', content: '货宜减办，使之即往贩售，获利可喜。' },
+      { category: '问功名', content: '一时难望。' },
       { category: '问婚姻', content: '四与初相应，初阳四阴，阴阳相合，必成可喜。' },
+      { category: '问家宅', content: '此宅阴气过盛，宅眷致多疾病，祈祷可疗，无咎。' },
+      { category: '问讼事', content: '"疾"者，害也，去其所害，讼自平矣。' },
+      { category: '问行人', content: '有事他往，一时未归，有喜无咎。' },
       { category: '问六甲', content: '生男。' }
     ]
   },
@@ -3704,8 +3712,9 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
       { category: '占问时运', content: '运途全盛，可得意外宠遇。' },
       { category: '问战征', content: '军事先卜，其兆大吉。' },
       { category: '问营商', content: '财运之来，虽辞不去。' },
-      { category: '问功名', content: '自天祐之，吉无不利。' },
+      { category: '问功名', content: '"自天祐之，吉无不利"。' },
       { category: '问婚姻', content: '天作之合，吉。' },
+      { category: '问家宅', content: '家业兴隆，不卜可知。' },
       { category: '问疾病', content: '病愈之后，且可得财，吉。' },
       { category: '问六甲', content: '生男。' }
     ]
@@ -3718,8 +3727,10 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
       { category: '问战征', content: '军队不须添减，率此以往，攻克战胜，无往不利，可"大得志也"。' },
       { category: '问营商', content: '货价无甚上落，往售皆可获利，大吉。' },
       { category: '问功名', content: '目下即可得志。' },
+      { category: '问婚姻', content: '吉。' },
       { category: '问家宅', content: '此宅不必改造，自得吉利。' },
       { category: '问疾病', content: '当出外求医，无咎。' },
+      { category: '问行人', content: '在外大吉，一时未必归家。' },
       { category: '问六甲', content: '生男。' }
     ]
   },
@@ -3747,6 +3758,9 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
       { category: '问功名', content: '躁进取败。' },
       { category: '问婚姻', content: '门户不当，不合，合则有咎。' },
       { category: '问家宅', content: '此宅地势低下，迁居不利。' },
+      { category: '问行人', content: '宜即归，可以免咎。' },
+      { category: '问失物', content: '不必往寻，寻之反有余祸。' },
+      { category: '问讼事', content: '宜即罢讼。' },
       { category: '问六甲', content: '生男。' }
     ]
   },
@@ -3757,8 +3771,10 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
       { category: '占问时运', content: '目下运途中正，事事谨慎，即有意外之事，皆可坦然无患。' },
       { category: '问战征', content: '军事最患夜袭，宜时作警备，可以无忧。' },
       { category: '问营商', content: '贩运货物，盗警水火，总宜保险，使可无虑。' },
+      { category: '问功名', content: '即可断结无忧。' },
       { category: '问家宅', content: '此宅阳刚过盛，二爻动而变离，火灾宜防。暮夜更当小心。' },
       { category: '问婚姻', content: '婚字从女，从昏，故称"昏礼"，有暮夜之象。诗云"弋凫与雁"，弋有戎象。"勿恤"，即有喜也。婚姻吉。' },
+      { category: '问疾病', content: '日轻夜重，是阴虚火盛之症，当慎意调治，可以无患。' },
       { category: '问六甲', content: '生男。' }
     ]
   },
@@ -3771,7 +3787,9 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
       { category: '问营商', content: '孤客独行，虽得无咎，恐遇雨有阻，濡滞时日。' },
       { category: '问功名', content: '孤芳独赏，恐遭小人所忌。' },
       { category: '问家宅', content: '此屋门面壮丽，栋上恐有渗漏，致被濡湿，急宜修葺，无咎。' },
-      { category: '问疾病', content: '面上浮肿，必是湿热之气，上冲所致，医治无咎。' }
+      { category: '问婚姻', content: '爻辞曰"独"，一时未得佳偶。' },
+      { category: '问疾病', content: '面上浮肿，必是湿热之气，上冲所致，医治无咎。' },
+      { category: '问六甲', content: '生男。' }
     ]
   },
   {
@@ -3782,8 +3800,11 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
       { category: '问战征', content: '臀无肤，是见伤也；行次且，是欲退也；闻言不信，是号令不行也。以此行军，何能决胜乎！' },
       { category: '问营商', content: '心无主见，故贩售货物，每失机宜，获利殊难。' },
       { category: '问功名', content: '次且者，不进之状，焉得成名？' },
+      { category: '问家宅', content: '此宅屋后无余地，屋前行路迁斜，为羊肠小径，居者尚无灾悔。' },
       { category: '问疾病', content: '剥肤之灾，其疥癞之患乎？防溃烂及耳，致两耳失聪。' },
       { category: '问婚姻', content: '始则踌躇不决，久之得以牵羊成礼。' },
+      { category: '问讼事', content: '防有杖笞之灾。' },
+      { category: '问行人', content: '一时不归。' },
       { category: '问六甲', content: '生女。' }
     ]
   },
@@ -3797,6 +3818,8 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
       { category: '问功名', content: '五为尊位，其名必显，惟宜远小人，近君子，斯可无咎。' },
       { category: '问家宅', content: '此宅蔓草丛生，几成荒废，当速剪除尽净，居住无咎。' },
       { category: '问婚姻', content: '五与二应，五居兑中，二居乾中，阴阳相合。"羊"取义于祥，有吉祥之兆，故无咎。' },
+      { category: '问疾病', content: '五以阳居阳，气过盛，宜调剂得中，可以无咎。' },
+      { category: '问讼事', content: '以正决邪，决去务尽，不使复萌，讼乃得吉。' },
       { category: '问六甲', content: '生女。' }
     ]
   },
@@ -3811,6 +3834,8 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
       { category: '问家宅', content: '凡一宅之中，或书声，或歌声，或笑语声，以至鸡鸣狗吠，皆有声也，"无号"，则寂灭无闻，其家必凶。' },
       { category: '问疾病', content: '是阳尽阴息之症，痛痒不觉，叫号无声，其病危矣。凶。' },
       { category: '问婚姻', content: '媒妁无言，不成。' },
+      { category: '问讼事', content: '冤莫能伸，讼不得直，凶。' },
+      { category: '问行人', content: '未通音问，凶。' },
       { category: '问六甲', content: '生男。' }
     ]
   },
@@ -4882,14 +4907,16 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
     hexagramId: 42,
     position: 0,
     judgments: [
-      { category: '占问时运', content: '目下交木水相生之运，正可相助成事。' },
-      { category: '问战征', content: '有水灭木之象，水军有厄，宜劳力相助，可以出险。' },
-      { category: '问功名', content: '木上有水，有得春雨发生之象，功名可望。' },
-      { category: '问营商', content: '有利过于本之象，吉。' },
-      { category: '问家宅', content: '此屋栋柱，恐有水湿溃烂之患，宜急修葺。' },
-      { category: '问婚姻', content: '坎男巽女，男上于女，阴阳之正也，吉。' },
-      { category: '问疾病', content: '肾水暴溢，宜急调治。' },
-      { category: '问六甲', content: '生男。' }
+      { category: '占问时运', content: '迅雷烈风，正当运途振作之际，改旧换新，在此时也。' },
+      { category: '问战征', content: '电逐风行，正可一鼓而平。' },
+      { category: '问营商', content: '有利则贸易，无则改售，宜迅速，不宜迟缓。' },
+      { category: '问功名', content: '风雷合益，大得志也。' },
+      { category: '问疾病', content: '是肝木太盛之症，治宜损阳扶阴。' },
+      { category: '问婚姻', content: '震男巽女，天然配合。' },
+      { category: '问家宅', content: '此宅防有雷击风摧之患，完者宜修葺之改作之，朽者宜改作之。' },
+      { category: '问讼事', content: '返躬自省，怒息气平，讼事自罢。' },
+      { category: '问失物', content: '已经迁改变易，不可复得。' },
+      { category: '问六甲', content: '单月男，双月女。' }
     ]
   },
   {
@@ -4902,6 +4929,8 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
       { category: '问功名', content: '可望大魁天下，大吉。' },
       { category: '问家宅', content: '此宅新造，屋宇宽大，大吉无咎。' },
       { category: '问婚姻', content: '大吉。' },
+      { category: '问讼事', content: '此讼为公众大事，非关一己私愤也。无咎。' },
+      { category: '问行人', content: '在外正当谋事立业，一时未归。' },
       { category: '问六甲', content: '生女。' }
     ]
   },
@@ -4915,6 +4944,7 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
       { category: '问功名', content: '古者命相举贤，皆从枚卜，既得吉兆，其显可知，故曰永吉。' },
       { category: '问疾病', content: '祷之即愈。' },
       { category: '问婚姻', content: '《震》《巽》为长男长女，卜凤之兆，自昔称祥，百年好合，故得永吉。' },
+      { category: '问家宅', content: '二至四为《坤》，《坤》为安，为土，有安宅之象。《坤》"利永贞"故曰，"永贞吉"。此宅可以久居也。' },
       { category: '问六甲', content: '生男。' }
     ]
   },
@@ -4926,7 +4956,10 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
       { category: '问战征', content: '兵本凶事，又陷危地，幸众军同心戮力，得奔告大营，获救出险，无咎。' },
       { category: '问功名', content: '先苦后甘，先难后获。' },
       { category: '问营商', content: '谚云"欲求富，走险路"。' },
+      { category: '问家宅', content: '此宅多凶，惟有中行之德，斯能逢凶化吉。' },
       { category: '问婚姻', content: '恐从丧服中成亲，然无咎也。' },
+      { category: '问讼事', content: '须诉之上官，乃得准信，罢讼。' },
+      { category: '问失物', content: '恐涉词讼。' },
       { category: '问六甲', content: '生男。' }
     ]
   },
@@ -4938,7 +4971,9 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
       { category: '问战征', content: '宜退兵移营，急请救援。' },
       { category: '问营商', content: '宜禀告店主，改迁别地，另开市面。' },
       { category: '问功名', content: '不成，须改就别业。' },
+      { category: '问家宅', content: '宜迁居。' },
       { category: '问婚姻', content: '须别寻媒妁。' },
+      { category: '问失物', content: '不得。' },
       { category: '问六甲', content: '生女。' }
     ]
   },
@@ -4950,6 +4985,7 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
       { category: '问战征', content: '罚必信，赏必公，战无不克，大吉。' },
       { category: '问营商', content: '以义为利，诚实相交，利益与共，以此为商，利益广矣。' },
       { category: '问功名', content: '实至名归，大吉。' },
+      { category: '问家宅', content: '此为仁里德门，勿问而知为善人之室也，大吉。' },
       { category: '问婚姻', content: '非亲即友，必是旧交，"勿问元吉"。' },
       { category: '问六甲', content: '生女。' }
     ]
@@ -4962,7 +4998,11 @@ export const MULTIPLE_JUDGMENTS_DATA: LineMultipleJudgments[] = [
       { category: '问战征', content: '不待添兵加饷，即可进击。' },
       { category: '问营商', content: '专求利己，所谓不夺不厌，必启争端，凶。' },
       { category: '问功名', content: '夺人之功以为名，其名必不久也，凶。' },
+      { category: '问家宅', content: '此宅地位太高，有害无利，不可久居。' },
       { category: '问婚姻', content: '恐不能偕老。' },
+      { category: '问讼事', content: '讼事无恒，转凶为吉。' },
+      { category: '问行人', content: '防中途有盗劫之患，凶。' },
+      { category: '问失物', content: '或已打破，不可得也。' },
       { category: '问六甲', content: '生女。' }
     ]
   },

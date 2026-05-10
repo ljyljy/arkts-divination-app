@@ -693,6 +693,132 @@ export struct YarrowPage {
               .alignItems(HorizontalAlign.Start)
             }
 
+            if (this.result.changedHexagram) {
+              Column() {
+                Text('🔄 之卦（变卦）详解')
+                  .fontSize(14)
+                  .fontWeight(FontWeight.Bold)
+                  .fontColor('#2C2416')
+                  .margin({ bottom: 8 })
+
+                if (this.result.changedHexagram.judgment) {
+                  Column() {
+                    Text('📖 之卦卦辞')
+                      .fontSize(12)
+                      .fontColor('#8B7355')
+                      .fontWeight(FontWeight.Bold)
+                    Text(this.result.changedHexagram.judgment)
+                      .fontSize(14)
+                      .fontColor('#5C4A32')
+                      .margin({ top: 4 })
+                  }
+                  .width('100%')
+                  .padding(12)
+                  .backgroundColor('#F5F1E8')
+                  .borderRadius(8)
+                  .alignItems(HorizontalAlign.Start)
+                }
+
+                if (this.result.changedHexagram.interpretation) {
+                  Column() {
+                    Text('✨ 之卦解释')
+                      .fontSize(14)
+                      .fontWeight(FontWeight.Bold)
+                      .fontColor('#2C2416')
+                      .margin({ bottom: 8 })
+
+                    this.YarrowInterpretationItem('总述', this.result.changedHexagram.interpretation.summary)
+                    this.YarrowInterpretationItem('事业', this.result.changedHexagram.interpretation.career)
+                    this.YarrowInterpretationItem('感情', this.result.changedHexagram.interpretation.relationship)
+                    this.YarrowInterpretationItem('健康', this.result.changedHexagram.interpretation.health)
+                    this.YarrowInterpretationItem('财运', this.result.changedHexagram.interpretation.wealth)
+                  }
+                  .width('100%')
+                  .margin({ top: 12 })
+                  .alignItems(HorizontalAlign.Start)
+                }
+
+                if (this.result.changedHexagram.multipleJudgments && this.result.changedHexagram.multipleJudgments.length > 0) {
+                  Column() {
+                    Text('📜 之卦一辞多断')
+                      .fontSize(14)
+                      .fontColor('#B94A48')
+                      .fontWeight(FontWeight.Bold)
+                      .margin({ bottom: 8 })
+                    ForEach(this.result.changedHexagram.multipleJudgments, (mj: MultipleJudgment) => {
+                      Column() {
+                        Text(mj.category)
+                          .fontSize(11)
+                          .fontColor('#8B7355')
+                          .fontWeight(FontWeight.Bold)
+                        Text(mj.content)
+                          .fontSize(12)
+                          .fontColor('#5C4A32')
+                          .margin({ top: 2 })
+                          .lineHeight(18)
+                      }
+                      .width('100%')
+                      .margin({ top: 8 })
+                      .padding(8)
+                      .backgroundColor('#FFF9F0')
+                      .borderRadius(6)
+                      .alignItems(HorizontalAlign.Start)
+                    })
+                  }
+                  .width('100%')
+                  .padding(12)
+                  .backgroundColor('#FFFEF9')
+                  .borderRadius(8)
+                  .margin({ top: 12 })
+                  .alignItems(HorizontalAlign.Start)
+                }
+
+                if (this.result.changedHexagram.takashiCase) {
+                  Column() {
+                    Text('📜 之卦高岛活断')
+                      .fontSize(14)
+                      .fontColor('#B94A48')
+                      .fontWeight(FontWeight.Bold)
+                      .margin({ bottom: 8 })
+                    Text(this.result.changedHexagram.takashiCase)
+                      .fontSize(12)
+                      .fontColor('#5C4A32')
+                      .lineHeight(18)
+                      .maxLines(3)
+                      .textOverflow({ overflow: TextOverflow.Ellipsis })
+                    Row() {
+                      Button('查看全部 ›')
+                        .fontSize(12)
+                        .fontColor('#B94A48')
+                        .backgroundColor(Color.Transparent)
+                        .height(24)
+                        .padding({ left: 8, right: 8 })
+                        .onClick(() => {
+                          this.sheetTitle = '📜 之卦高岛活断';
+                          this.sheetContent = this.result!.changedHexagram!.takashiCase!;
+                          this.showContentSheet = true;
+                        })
+                    }
+                    .margin({ top: 4 })
+                    .width('100%')
+                    .justifyContent(FlexAlign.End)
+                  }
+                  .width('100%')
+                  .padding(12)
+                  .backgroundColor('#FFFEF9')
+                  .borderRadius(8)
+                  .margin({ top: 12 })
+                  .alignItems(HorizontalAlign.Start)
+                }
+              }
+              .width('100%')
+              .padding(12)
+              .backgroundColor('#F5F1E8')
+              .borderRadius(8)
+              .margin({ top: 12 })
+              .alignItems(HorizontalAlign.Start)
+            }
+
             if (this.result.finalReading) {
               Column() {
                 Text('📜 终卦解读')
@@ -902,6 +1028,14 @@ export struct YarrowPage {
                 this.lowerNumber = 1;
                 this.movingLine = 1;
                 this.result = null;
+                this.isAddingNote = false;
+                this.newNoteContent = '';
+                this.editingNoteId = '';
+                this.editingNoteContent = '';
+                this.notesVersion = 0;
+                this.showContentSheet = false;
+                this.sheetTitle = '';
+                this.sheetContent = '';
               })
 
             Button('进阶解读')
